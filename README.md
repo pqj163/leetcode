@@ -10,10 +10,11 @@
 
 |  일자  |시도|참고|예시|정답|시간|공간|  §  | 
 |  :--:  |:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-|21-01-12| 2  | X  | O  | O  | 1  | 1  | [[ § 937-1 ](#-----937----1)] |
+|21-01-12| 2  | X  | O  | O  | 1  | 2  | [[ § 937-1 ](#-----937----1)] |
+|21-01-12| 3  | O  | O  | O  | 2  | 1  | [[ § 937-2 ](#-----937----2)] |
 
 ### 【[ § ](#leetcode)】 [[ § 937 ](#---937)] - 1 
-문자열을 리스트를 보고 쪼갠 다음 리스트의 요소로 정렬한 것 까지는 똑같았는데, 처음엔 2번째 요소로만 정렬했었다가 2번째 요소는 같은데 3번째 요소는 다른 로그가 인풋으로 들어와서 틀렸다.
+첫번째 시도 때 문자열을 리스트를 보고 쪼갠 다음 리스트의 요소로 정렬한 것 까지는 똑같았는데, 2번째 요소로만 정렬했었다가 2번째 요소는 같은데 3번째 요소는 다른 로그가 인풋으로 들어와서 틀렸다.
 ```Python
 class Solution(object):
     def reorderLogFiles(self, logs):
@@ -42,6 +43,34 @@ class Solution(object):
 ```
 Runtime: 24 ms, faster than 74.06% of Python online submissions for Reorder Data in Log Files.
 Memory Usage: 13.9 MB, less than 7.50% of Python online submissions for Reorder Data in Log Files.
+```
+
+### 【[ § ](#leetcode)】 [[ § 937 ](#---937)] - 2 
+이번에는 책을 따라해봤다. isdigit()을 활용할 생각도 못했고, 굳이 쪼개서 배열에 넣을 필요가 없을 것이라는 것도 생각못했다. 근데 이쪽 코드가 더 짧아서 속도가 이쪽이 더 빠를 것이라 생각했는데, 그렇지는 않더라. 1번에서는 공간을 더 쓴 대신 조금 더 빨랐고, 2번에서는 조금 느린 대신 공간을 덜 썼다.
+```Python
+class Solution(object):
+    def reorderLogFiles(self, logs):
+        """
+        :type logs: List[str]
+        :rtype: List[str]
+        """
+        str_li = []
+        num_li = []
+        
+        for log in logs :
+            if log.split()[1].isdigit():
+                num_li.append(log)
+            else:
+                str_li.append(log)
+        str_li.sort(key=lambda x: (x.split()[1:],x.split()[0]))
+        
+        return str_li+num_li
+```
+
+- 결과
+```
+Runtime: 28 ms, faster than 44.69% of Python online submissions for Reorder Data in Log Files.
+Memory Usage: 13.7 MB, less than 55.41% of Python online submissions for Reorder Data in Log Files.
 ```
 
 ## 【[ § ](#leetcode)】 344
