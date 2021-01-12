@@ -5,7 +5,7 @@
 2. [334 - Reverse String](https://github.com/pqj163/leetcode/blob/main/README.md#---334---reverse-string-%EB%AC%B8%EC%A0%9C)
 
 ## 【[ § ](https://github.com/pqj163/leetcode/blob/main/README.md#leetcode)】 937 [(문제)](https://leetcode.com/problems/reorder-data-in-log-files/)
-> Reorder Data in Log Files
+> **Reorder Data in Log Files**
 1. [[ 2 § ](https://github.com/pqj163/leetcode/blob/main/README.md#--937----2)] : 1 & 1 
 
 ### 【[ § ](https://github.com/pqj163/leetcode/blob/main/README.md#leetcode)】 [[ § 937 ](https://github.com/pqj163/leetcode/blob/main/README.md#---937---reorder-data-in-log-files-%EB%AC%B8%EC%A0%9C)] 1. 2 
