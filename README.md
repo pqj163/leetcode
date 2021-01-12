@@ -104,9 +104,10 @@ Memory Usage: 21 MB, less than 83.14% of Python online submissions for Reverse S
 > **Most Common Word**   
 [[문제](https://leetcode.com/problems/most-common-word/)] 
 
-|  일자  |시도|참고|예시|정답|    시간    |   공간   |  §  | 
-|:------:|:--:|:--:|:--:|:--:|:---------:|:---------:|:--:|
-|21-01-12| 3  | △ | O  | O  | 1 (12.82) | 1 (40.38) | [[ § 819-1 ](#-----819----1)] |
+|  일자  |시도|참고|예시|정답|     시간    |    공간   |  §  | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-01-12| 3  | △ | O  | O  | 2 (12.82%) | 1 (40.38%) | [[ § 819-1 ](#-----819----1)] |
+|21-01-12| 4  | O  | O  | O  | 1 (54.38%) | 2 (14.74%) | [[ § 819-2 ](#-----819----2)] |
 
 ### 【[ § ](#leetcode)】 [[ § 819 ](#---819)] - 1 
 첫번째 시도 때 strip()으로,랑 .만 지우고 !를 남겨서 실패했고, 두번째는 띄어쓰기 없이 ,b,b 이런 식으로 붙어있는 문자열 때문에 split()이 이상하게 돼서 실패했다. 참고를 아예 안했다기에는 Counter를 애초에 책보고 배우기도 했고, 밑에 제목을 언뜻 봤는데 대놓고 Counter랑 리스트 컴프리헨션이 써있어서 답은 안봤지만 참고를 아예 안했다고 하긴 뭐해서 세모로 했다...
@@ -139,4 +140,29 @@ class Solution(object):
 ```
 Runtime: 40 ms, faster than 12.82% of Python online submissions for Most Common Word.
 Memory Usage: 13.7 MB, less than 40.38% of Python online submissions for Most Common Word.
+```
+
+### 【[ § ](#leetcode)】 [[ § 819 ](#---819)] - 2 
+책을 보고 따라해봤는데, 정규 표현식이 따로 안나왔으니 안쓰겠거니 했는데 바로 쓰더라... 이렇게 하니 코드가 보기에 불편할지언정 훨 간결해졌다. 속도는 빨라졌지만 공간을 조금 더 많이 잡아먹는다. 근데 속도가 이 정도 차이면 충분히 희생할만한 공간이지 싶다. 근데 공간은 어떤 식으로 측정되는 거지...? 스택에 쌓이는 정도?
+```Python
+class Solution(object):
+    def mostCommonWord(self, paragraph, banned):
+        """
+        :type paragraph: str
+        :type banned: List[str]
+        :rtype: str
+        """
+        
+        words = [word for word in re.sub(r'[^\w]', ' ', paragraph)
+                 .lower().split() 
+                 if word not in banned]
+        
+        counts = collections.Counter(words)
+        
+        return counts.most_common()[0][0]
+```
+- 결과
+```
+Runtime: 28 ms, faster than 54.38% of Python online submissions for Most Common Word.
+Memory Usage: 13.8 MB, less than 14.74% of Python online submissions for Most Common Word.
 ```
