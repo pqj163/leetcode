@@ -1,6 +1,6 @@
 # leetcode
 
-[937. Reorder Log Files](https://github.com/pqj163/leetcode/tree/main#937---reorder-log-files)
+937. [Reorder Log Files](https://github.com/pqj163/leetcode/tree/main#937---reorder-log-files)
 
 ### 937 - Reorder Log Files
 1. 첫번째 시도
