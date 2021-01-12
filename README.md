@@ -5,7 +5,7 @@
 ## 937 - Reorder Log Files[(목차)](https://github.com/pqj163/leetcode/blob/main/README.md#leetcode)[(문제)](https://leetcode.com/problems/reorder-data-in-log-files/)
 [(2). 1](https://github.com/pqj163/leetcode/blob/main/README.md#2-1) : 1, 1
 
-### (2). 1 [(답 목차)](https://github.com/pqj163/leetcode/blob/main/README.md#2-1)
+### (2). 1 [(답 목차)](https://github.com/pqj163/leetcode/blob/main/README.md#937---reorder-log-files%EB%AA%A9%EC%B0%A8%EB%AC%B8%EC%A0%9C)
 문자열을 리스트를 보고 쪼갠 다음 리스트의 요소로 정렬한 것 까지는 똑같았는데, 처음엔 2번째 요소로만 정렬했었다가 2번째 요소는 같은데 3번째 요소는 다른 로그가 인풋으로 들어와서 틀렸다.
 ```Python
 class Solution(object):
