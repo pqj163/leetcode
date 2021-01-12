@@ -3,8 +3,8 @@
 [937 - Reorder Log Files](https://github.com/pqj163/leetcode/blob/main/README.md#937---reorder-log-files%EB%AA%A9%EC%B0%A8%EB%AC%B8%EC%A0%9C)
 
 ## 937 - Reorder Log Files[(목차)](https://github.com/pqj163/leetcode/blob/main/README.md#leetcode)[(문제)](https://leetcode.com/problems/reorder-data-in-log-files/)
-1. 두번째 시도, 첫번째 정답
-    문자열을 리스트를 보고 쪼갠 다음 리스트의 요소로 정렬한 것 까지는 똑같았는데, 처음엔 2번째 요소로만 정렬했었다가 2번째 요소는 같은데 3번째 요소는 다른 로그가 인풋으로 들어와서 틀렸다.
+1. 두번째 시도, 첫번째 정답   
+      문자열을 리스트를 보고 쪼갠 다음 리스트의 요소로 정렬한 것 까지는 똑같았는데, 처음엔 2번째 요소로만 정렬했었다가 2번째 요소는 같은데 3번째 요소는 다른 로그가 인풋으로 들어와서 틀렸다.
 ```Python
 class Solution(object):
     def reorderLogFiles(self, logs):
