@@ -47,6 +47,7 @@ Memory Usage: 13.9 MB, less than 7.50% of Python online submissions for Reorder 
 ## 【[ § ](https://github.com/pqj163/leetcode/blob/main/README.md#leetcode)】 334
 > **Reverse String **  
 [[문제](https://leetcode.com/problems/reorder-data-in-log-files/)] 
+
 |  정답  |  시도  |  시간  |  공간  |  §  |
 |  :---: |  :--:  |  :--:  |  :--:  |:---:|
 | 1 | 1 | 1 | 1 | [[ § ](#-----334--1---1)] |
