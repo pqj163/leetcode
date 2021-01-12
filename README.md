@@ -4,7 +4,7 @@
 ](https://github.com/pqj163/leetcode/blob/main/README.md#937---reorder-data-in-log-files%EB%AC%B8%EC%A0%9C-%EB%AA%A9%EC%B0%A8%EB%AC%B8%EC%A0%9C)
 2. [334 - Reverse String](https://github.com/pqj163/leetcode/blob/main/README.md#334---reverse-string%EB%AC%B8%EC%A0%9C-%EB%AA%A9%EC%B0%A8%EB%AC%B8%EC%A0%9C)
 
-## 937 - Reorder Data in Log Files[(문제 목차)](https://github.com/pqj163/leetcode/blob/main/README.md#leetcode)[(문제)](https://leetcode.com/problems/reorder-data-in-log-files/)
+## =937 - Reorder Data in Log Files[(문제 목차)](https://github.com/pqj163/leetcode/blob/main/README.md#leetcode)[(문제)](https://leetcode.com/problems/reorder-data-in-log-files/)
 [2 : 1 (937)](https://github.com/pqj163/leetcode/blob/main/README.md#2--1-937-%EB%8B%B5-%EB%AA%A9%EC%B0%A8) - 1 & 1
 
 ### 2 : 1 (937) [(답 목차)](https://github.com/pqj163/leetcode/blob/main/README.md#937---reorder-log-files%EB%AC%B8%EC%A0%9C-%EB%AA%A9%EC%B0%A8%EB%AC%B8%EC%A0%9C)
