@@ -4,6 +4,7 @@
 ](#---937)
 2. [344 - Reverse String](#---344)
 3. [819 - Most Common Word](#---819)
+4. [49 -  Group Anagrams](#---49)
 
 ## 【[ § ](#leetcode)】 937
 > **Reorder Data in Log Files**   
@@ -166,3 +167,65 @@ class Solution(object):
 Runtime: 28 ms, faster than 54.38% of Python online submissions for Most Common Word.
 Memory Usage: 13.8 MB, less than 14.74% of Python online submissions for Most Common Word.
 ```
+
+## 【[ § ](#leetcode)】 49
+> **Group Anagrams**   
+[[문제](https://leetcode.com/problems/group-anagrams/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-01-12| 3  | X  | O  | O  | 2 (5.01%)  | 2 (26.84%) | [[ § 49-1 ](#-----49----1)] |
+|21-01-12| 4  | O  | O  | O  | 1 (98.72%) | 1 (57.46%) | [[ § 49-2 ](#-----49----2)] |
+
+### 【[ § ](#leetcode)】 [[ § 49 ](#---49)] - 1 
+처음에 '아마 겹치는 숫자 있어서 안되지 싶은데...' 하면서도 유니코드 변환 후 합산해서 비교한 다음 리스트를 만들어 주는 식으로 했었는데 아니나 다를까 겹치는 숫자가 있어서 실패했다. 그 다음은 집합으로 뭘 어떻게 해보려 했는데 계속 에러가 나기도 하고, 같은 알파벳이 2개인 단어와 다른 1개인 단어가 겹칠까 싶어 결국 지금 방식이 됐다. 근데 시간이 너무 긴데..?
+```Python
+class Solution(object):
+    def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+        
+        words_dict = {}
+        results = []
+        
+        for word in strs:
+            temp = tuple(sorted([a for a in word])) 
+            if temp not in words_dict.keys():
+                words_dict[temp] = []
+            words_dict[temp].append(word)
+        
+        for li in words_dict.values():
+            results.append(li)
+            
+        return results
+```
+- 결과
+```
+Runtime: 2196 ms, faster than 5.01% of Python online submissions for Group Anagrams.
+Memory Usage: 18.2 MB, less than 26.84% of Python online submissions for Group Anagrams.
+```
+
+### 【[ § ](#leetcode)】 [[ § 49 ](#---49)] - 2 
+책을 봤는데 방향이 크게 다르지 않은 것 같아서 성능 차이가 별로 안나면 그냥 따로 기록을 안하려고 했다. 근데 많이 나더라... 혹시 .values()로 바로 리턴을 안하고 리스트에 추가한 다음에 리턴해서 그런가 싶어 위에 것을 수정해서 해봤는데 오히려 더 느려졌다... 그나저나 바보같이 바로 리턴할 생각을 못했구나 싶다. 그리고 사실 1번에서도 defaultdict를 써보려 했는데 잘 안됐다. append가 안되더라. 지금보니 괄호에 list를 적어서 기본값을 정해줬어야 하는 모양이다.
+```Python
+class Solution(object):
+    def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+        
+        ana = collections.defaultdict(list)
+        
+        for word in strs:
+            ana[''.join(sorted(word))].append(word)
+        return ana.values()
+```
+- 결과
+```
+Runtime: 72 ms, faster than 98.72% of Python online submissions for Group Anagrams.
+Memory Usage: 17.6 MB, less than 57.46% of Python online submissions for Group Anagrams.
+```
+
