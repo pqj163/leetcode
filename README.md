@@ -3,6 +3,7 @@
 1. [937 - Reorder Data in Log Files
 ](#---937)
 2. [344 - Reverse String](#---344)
+3. [819 - Most Common Word](#---819)
 
 ## 【[ § ](#leetcode)】 937
 > **Reorder Data in Log Files**   
@@ -97,4 +98,45 @@ class Solution(object):
 ```
 Runtime: 164 ms, faster than 78.23% of Python online submissions for Reverse String.
 Memory Usage: 21 MB, less than 83.14% of Python online submissions for Reverse String.
+```
+
+## 【[ § ](#leetcode)】 819
+> **Most Common Word**   
+[[문제](https://leetcode.com/problems/most-common-word/)] 
+
+|  일자  |시도|참고|예시|정답|    시간    |   공간   |  §  | 
+|:------:|:--:|:--:|:--:|:--:|:---------:|:---------:|:--:|
+|21-01-12| 3  | △ | O  | O  | 1 (12.82) | 1 (40.38) | [[ § 819-1 ](#-----819----1)] |
+
+### 【[ § ](#leetcode)】 [[ § 819 ](#---819)] - 1 
+첫번째 시도 때 strip()으로,랑 .만 지우고 !를 남겨서 실패했고, 두번째는 띄어쓰기 없이 ,b,b 이런 식으로 붙어있는 문자열 때문에 split()이 이상하게 돼서 실패했다. 참고를 아예 안했다기에는 Counter를 애초에 책보고 배우기도 했고, 밑에 제목을 언뜻 봤는데 대놓고 Counter랑 리스트 컴프리헨션이 써있어서 답은 안봤지만 참고를 아예 안했다고 하긴 뭐해서 세모로 했다...
+```Python
+class Solution(object):
+    def mostCommonWord(self, paragraph, banned):
+        """
+        :type paragraph: str
+        :type banned: List[str]
+        :rtype: str
+        """
+        
+        paragraph = paragraph.lower()
+        
+        for i, al in enumerate(paragraph):
+            if not al.isalpha() and al !=" ":
+                paragraph = paragraph.replace(paragraph[i]," ")
+        
+        counts = collections.Counter(paragraph.split())
+        
+        for ban in banned:
+            try:
+                del counts[ban]
+            except:
+                pass
+        
+        return counts.most_common()[0][0]
+```
+- 결과
+```
+Runtime: 40 ms, faster than 12.82% of Python online submissions for Most Common Word.
+Memory Usage: 13.7 MB, less than 40.38% of Python online submissions for Most Common Word.
 ```
