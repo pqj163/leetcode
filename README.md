@@ -44,7 +44,7 @@ Runtime: 24 ms, faster than 74.06% of Python online submissions for Reorder Data
 Memory Usage: 13.9 MB, less than 7.50% of Python online submissions for Reorder Data in Log Files.
 ```
 
-## 【[ § ](#leetcode)】 344
+## 【[ § ](#leetcode)】344
 > **Reverse String **  
 [[문제](https://leetcode.com/problems/reverse-string/)] 
 
