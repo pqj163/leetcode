@@ -1,8 +1,8 @@
 # leetcode
 
-[937 - Reorder Log Files](https://github.com/pqj163/leetcode/tree/main#937---reorder-log-files%EB%AA%A9%EC%B0%A8%EB%AC%B8%EC%A0%9C)
+[937 - Reorder Log Files](https://github.com/pqj163/leetcode/blob/main/README.md#937---reorder-log-files%EB%AA%A9%EC%B0%A8%EB%AC%B8%EC%A0%9C)
 
-### 937 - Reorder Log Files[(목차)](https://github.com/pqj163/leetcode/blob/main/README.md)[(문제)](https://leetcode.com/problems/reorder-data-in-log-files/)
+### 937 - Reorder Log Files[(목차)](https://github.com/pqj163/leetcode/blob/main/README.md)[(문제)](https://leetcode.com/problems/reorder-data-in-log-files/){:target="_blank"}
 1. 두번째 시도, 첫번째 정답
 ```Python
 class Solution(object):
