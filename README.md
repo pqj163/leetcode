@@ -1,7 +1,7 @@
 # leetcode
 
 1. [937 - Reorder Data in Log Files
-](https://github.com/pqj163/leetcode/blob/main/README.md#937---reorder-data-in-log-files%EB%AC%B8%EC%A0%9C-%EB%AA%A9%EC%B0%A8%EB%AC%B8%EC%A0%9C)
+](https://github.com/pqj163/leetcode/blob/main/README.md#-937---reorder-data-in-log-files-%EB%AC%B8%EC%A0%9C)
 2. [334 - Reverse String](https://github.com/pqj163/leetcode/blob/main/README.md#334---reverse-string%EB%AC%B8%EC%A0%9C-%EB%AA%A9%EC%B0%A8%EB%AC%B8%EC%A0%9C)
 
 ## [●](https://github.com/pqj163/leetcode/blob/main/README.md#leetcode) 937 - Reorder Data in Log Files [(문제)](https://leetcode.com/problems/reorder-data-in-log-files/)
