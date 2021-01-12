@@ -33,7 +33,7 @@ class Solution(object):
         
         return results + num_li
 ```
-- 결과
+* 결과
 ```
 Runtime: 24 ms, faster than 74.06% of Python online submissions for Reorder Data in Log Files.
 Memory Usage: 13.9 MB, less than 7.50% of Python online submissions for Reorder Data in Log Files.
