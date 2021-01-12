@@ -5,7 +5,7 @@
 2. [334 - Reverse String](https://github.com/pqj163/leetcode/blob/main/README.md#-334---reverse-string-%EB%AC%B8%EC%A0%9C)
 
 ## [](https://github.com/pqj163/leetcode/blob/main/README.md#leetcode) 937 - Reorder Data in Log Files [(문제)](https://leetcode.com/problems/reorder-data-in-log-files/)
-1. [[937] 2](https://github.com/pqj163/leetcode/blob/main/README.md#2--1-937-%EB%8B%B5-%EB%AA%A9%EC%B0%A8) - 1 & 1
+1. [937 - 2](https://github.com/pqj163/leetcode/blob/main/README.md#2--1-937-%EB%8B%B5-%EB%AA%A9%EC%B0%A8) - 1 & 1
 
 ### [1.](https://github.com/pqj163/leetcode/blob/main/README.md#-937---reorder-data-in-log-files-%EB%AC%B8%EC%A0%9C) 937 - 2
 문자열을 리스트를 보고 쪼갠 다음 리스트의 요소로 정렬한 것 까지는 똑같았는데, 처음엔 2번째 요소로만 정렬했었다가 2번째 요소는 같은데 3번째 요소는 다른 로그가 인풋으로 들어와서 틀렸다.
