@@ -5,6 +5,7 @@
 2. [344 - Reverse String](#---344)
 3. [819 - Most Common Word](#---819)
 4. [49 -  Group Anagrams](#---49)
+5. [5 - Longest Palindromic Substring](#---5)
 
 ## 【[ § ](#leetcode)】 937
 > **Reorder Data in Log Files**   
@@ -229,5 +230,48 @@ class Solution(object):
 ```
 Runtime: 72 ms, faster than 98.72% of Python online submissions for Group Anagrams.
 Memory Usage: 17.6 MB, less than 57.46% of Python online submissions for Group Anagrams.
+```
+
+## 【[ § ](#leetcode)】 5
+> **Longest Palindromic Substring**   
+[[문제](https://leetcode.com/problems/longest-palindromic-substring/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-01-13| 9  | O  | O  | O  | 1 (94.42%)  | 1 (76.37%) | [[ § 5-1 ](#-----5----1)] |
+
+### 【[ § ](#leetcode)】 [[ § 5 ](#---5)] - 1 
+처음엔 뒤집어서 서로 다른 쪽에서, 또 서로 같은 쪽에서 비교해가면서 찾는 식으로 접근했는데, 이렇게 접근하니 코드를 수정해서 한 케이스를 통과하면 다음 케이스에서 틀리더라. 가령 펠린드롬이 아닌데 우연히 같은 인덱스에 같은 알파벳이 여러번 겹친 탓에 걔가 리턴된다던지... 내가 아는 지식들로는 해결이 힘들겠다 싶어 책을 봤는데 투 포인터 어쩌고 하길래 머리가 아파서 책을 도로 덮었다. 당최 뭔소린지 모르겠어서 안되겠거니하고 반즈음 포기하고 있었는데, 샤워를 하고 나니 갑자기 무슨 소리였는 지 이해가 됐다. 아, 그리고 오늘 스터디에서 현업자가 타입 지정이 굉장히 유용한 팁이라고 했다는 말을 듣고 해보려 했는데, 파이썬 버전 문제인지 뭔지 리트코드에서는 신택스 에러가 났다. 레플에서는 되는 거 보니 파이썬 버전 문제가 맞지 싶다. 비록 리트코드에서는 타입지정을 못해줬지만 여기서라도 해줘야지...
+
+```Python
+class Solution(object):
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+
+        def expend(left: int, right: int) -> str:
+            while 0 <= left and right <= len(s) and s[left] == s[right-1]:
+                left -= 1
+                right += 1
+            return s[left + 1 : right - 1]
+        
+        if len(s) < 2 or s == s[::-1]:
+            return s
+        
+        result = ''
+        
+        for i in range(len(s)-1):
+            result = max(result,
+                         expend(i,i+1),
+                         expend(i,i+2),
+                         key = len)
+        return result
+```
+- 결과
+```
+Runtime: 240 ms, faster than 94.42% of Python online submissions for Longest Palindromic Substring.
+Memory Usage: 13.5 MB, less than 76.37% of Python online submissions for Longest Palindromic Substring.
 ```
 
