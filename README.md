@@ -8,6 +8,7 @@
 5. [5 - Longest Palindromic Substring](#---5)
 6. [1 - Two Sum](#---1)
 7. [42 - Trapping Rain Water](#---42)
+8. [15 - 3Sum](#---15)
 
 ## 【[ § ](#leetcode)】 937
 > **Reorder Data in Log Files**   
@@ -400,4 +401,64 @@ class Solution(object):
 ```
 Runtime: 40 ms, faster than 68.68% of Python online submissions for Trapping Rain Water.
 Memory Usage: 14.1 MB, less than 73.25% of Python online submissions for Trapping Rain Water.
+```
+
+## 【[ § ](#leetcode)】 15
+> **3Sum**   
+[[문제](https://leetcode.com/problems/3sum/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-01-15| 3  | O  | O  | O  | 1 (75.41%)  | 1 (49.89%) | [[ § 15-1 ](#-----15----1)] |
+
+### 【[ § ](#leetcode)】 [[ § 15 ](#---15)] - 1 
+처음에 브루트 포스로 접근해서 예시는 통과했으나 실제에서 중복값이 나왔고, 어떻게 해결해보려다 포기하고 책을 봤는데, 막상 브루트 포스로 접근해서 중복값 제거까지 해놓으면 타임아웃이 일어난다더라. 결국 여기서도 투포인터를 써서 해결한다.
+
+```Python
+class Solution(object):
+    def threeSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        
+        result = []
+        #투 포인터 풀이를 위해 정렬
+        #정렬하고나면 작은 값은 왼쪽에, 큰 값은 오른쪽에 위치하게 된다.
+        nums.sort()
+        
+        
+        for i in range(len(nums)-1):
+            if i > 0 and nums[i] == nums[i-1]:
+                #현재 값이 이전 값과 동일하면 스킵
+                continue
+            #i + 1 번째와 배열의 끝을 각각 포인터로 지정
+            left, right = i + 1, len(nums) - 1
+            while left < right:
+                sum = nums[i] + nums[left] + nums[right]
+                if sum < 0:
+                    #합계가 0보다 작으면 값을 키우기 위해 왼쪽 포인터를 오른쪽으로 한칸
+                    left += 1
+                elif sum > 0:
+                    #0보다 크면 값을 줄이기 위해 오른쪽 포인터를 왼쪽으로 한칸
+                    right -= 1
+                else:
+                    #둘 다 아니면 result로 보냄
+                    result.append([nums[i],nums[left],nums[right]])
+
+                    #중복값 제거를 위한 포인터 스킵
+                    while left < right and nums[left] == nums[left + 1]:
+                        left += 1
+                    while left < right and nums[right] == nums[right - 1]:
+                        right -= 1
+                    #위에서 중복값 제거를 위해 스킵할 때는 이전값과 비교했지만,
+                    #여기서는 다음값과 비교하기 때문에 한칸 더 가줘야 중복값 제거가 된다.
+                    left += 1
+                    right -= 1
+        return result 
+```
+- 결과
+```
+Runtime: 684 ms, faster than 75.41% of Python online submissions for 3Sum.
+Memory Usage: 16.8 MB, less than 49.89% of Python online submissions for 3Sum.
 ```
