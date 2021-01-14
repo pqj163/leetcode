@@ -6,6 +6,7 @@
 3. [819 - Most Common Word](#---819)
 4. [49 -  Group Anagrams](#---49)
 5. [5 - Longest Palindromic Substring](#---5)
+6. [1 - Two Sum](#---1)
 
 ## 【[ § ](#leetcode)】 937
 > **Reorder Data in Log Files**   
@@ -273,5 +274,43 @@ class Solution(object):
 ```
 Runtime: 240 ms, faster than 94.42% of Python online submissions for Longest Palindromic Substring.
 Memory Usage: 13.5 MB, less than 76.37% of Python online submissions for Longest Palindromic Substring.
+```
+
+
+## 【[ § ](#leetcode)】 1
+> **Two Sum**   
+[[문제](https://leetcode.com/problems/two-sum/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-01-15| 5  | X  | O  | O  | 1 (5.08%)  | 1 (12.13%) | [[ § 1-1 ](#-----1----1)] |
+
+### 【[ § ](#leetcode)】 [[ § 1 ](#---1)] - 1 
+풀 때 상태가 안좋아서 '그래... 통과만 하자'하는 심정으로 풀었는데 솔직히 되게 쉬운 문제였는데 한번에 통과하지도 못했고 성능도 엉망이다... target이 나오는 단 하나의 경우를 리턴했어야 했는데, 처음에는 2가지 경우를 리턴하는 바람에 틀렸고, 그 다음에는 경우가 하나만 나타나도 바로 리턴하게 해놨더ㅣ 숫자가 하나만 리턴돼서 틀리기에 '이건 뭐지...?' 하고 그냥 아무렇게나 막 좀 해보다가 하나만 리턴되는 경우를 다시 살펴보니 그 숫자 하나만으로 target을 완성할 수 있는 경우더라... 그래서 자기 자신이 아니어야 하는 조건을 추가했다. 근데 이렇게 해보고 나니... 한가지 경우가 두번 리턴되는 경우를 막으려고 집합을 썼던 건데 이러면 그럴 필요가 없네...?
+> 굳이 구현해보지는 않았지만, 책에서는 배열만을 이용해 문제를 풀 경우 배열의 순차탐색을 두번해야하기 때문에 시간복잡도가 무조건적으로 n^2이 되는 것을 dictionary를 이용해서 최적화한다. 이 경우 배열을 dict로 만드는건 n이지만, 탐색에는 최선 1, 최악 n의 시간복잡도를 가지게 된다. for문을 두번 써서 dictionary를 만들기도, 한번만 써서 만드는 것과 탐색을 함께 하기도 한다. 투 포인터로 푸는 방법도 나오기에 '정렬된 배열을 주지 않는데 왠 투 포인터지?' 싶었는데 아니나 다를까 실제 코딩 테스트에 이런 문제가 나왔을 때 이렇게 접근하면 안된단다... 정렬을 따로 구현하면 인덱스가 꼬여 복잡도도 늘고 코드 자체도 복잡해진다. 그리고 Go를 쓰면 속도가 압도적으로 빨라지는 것을 보여줬는데... 묘하게 설렜다. 꼭 Go랑 C++을 배워야지. C#이랑 스칼라도.
+
+```Python
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        result = set()
+        
+        for i1, num1 in enumerate(nums):
+            for i2, num2 in enumerate(nums):
+                if (num1 + num2) == target and i1 != i2:
+                    result.add(i1)
+                    result.add(i2)
+                    continue             
+
+        return result
+```
+- 결과
+```
+Runtime: 668 ms, faster than 5.08% of Python online submissions for Two Sum.
+Memory Usage: 13.7 MB, less than 12.13% of Python online submissions for Two Sum.
 ```
 
