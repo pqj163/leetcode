@@ -7,6 +7,7 @@
 4. [49 -  Group Anagrams](#---49)
 5. [5 - Longest Palindromic Substring](#---5)
 6. [1 - Two Sum](#---1)
+7. [42 - Trapping Rain Water](#---42)
 
 ## 【[ § ](#leetcode)】 937
 > **Reorder Data in Log Files**   
