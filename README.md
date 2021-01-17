@@ -9,6 +9,7 @@
 6. [1 - Two Sum](#---1)
 7. [42 - Trapping Rain Water](#---42)
 8. [15 - 3Sum](#---15)
+9. [234 - Palindrome Linked List](#---234)
 
 ## 【[ § ](#leetcode)】 937
 > **Reorder Data in Log Files**   
@@ -462,4 +463,57 @@ class Solution(object):
 ```
 Runtime: 684 ms, faster than 75.41% of Python online submissions for 3Sum.
 Memory Usage: 16.8 MB, less than 49.89% of Python online submissions for 3Sum.
+```
+
+
+## 【[ § ](#leetcode)】 234
+> **Palindrome Linked List**   
+[[문제](https://leetcode.com/problems/palindrome-linked-list/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-01-17| 3  | X  | O  | O  | 1 (77.18%)  | 1 (14.49%) | [[ § 234-1 ](#-----234----1)] |
+
+### 【[ § ](#leetcode)】 [[ § 234 ](#---234)] - 1 
+처음에 당연히 빈 배열은 false일꺼라 생각했는데 true여서 틀렸고, 그 다음엔 막연하게 길이가 1이거나 홀수이면 펠린드롬이 아니라고 생각했다가 틀렸다.
+
+```Python
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def isPalindrome(self, head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        nodes = []
+        
+        if head:
+            node = head
+        else:
+            return True
+        
+        while True:
+            nodes.append(node.val)
+            if node.next:
+                node = node.next
+            else:
+                break
+        
+        if len(nodes) == 1:
+            return True
+        
+        for i in range((len(nodes) / 2)):
+            if not(nodes[i] == nodes[-(i+1)]):
+                return False
+            
+        return True      
+```
+- 결과
+```
+Runtime: 68 ms, faster than 77.18% of Python online submissions for Palindrome Linked List.
+Memory Usage: 32.9 MB, less than 14.49% of Python online submissions for Palindrome Linked List.
 ```
