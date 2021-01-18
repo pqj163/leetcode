@@ -472,7 +472,8 @@ Memory Usage: 16.8 MB, less than 49.89% of Python online submissions for 3Sum.
 
 |  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
 |:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
-|21-01-17| 3  | X  | O  | O  | 1 (77.18%)  | 1 (14.49%) | [[ § 234-1 ](#-----234----1)] |
+|21-01-17| 4  | X  | O  | O  | 1 (77.18%)  | 1 (14.49%) | [[ § 234-1 ](#-----234----1)] |
+|21-01-18| 5  | O  | O  | O  | 1 (89.66%)  | 1 (97.00%) | [[ § 234-2 ](#-----234----2)] |
 
 ### 【[ § ](#leetcode)】 [[ § 234 ](#---234)] - 1 
 처음에 당연히 빈 배열은 false일꺼라 생각했는데 true여서 틀렸고, 그 다음엔 막연하게 길이가 1이거나 홀수이면 펠린드롬이 아니라고 생각했다가 틀렸다.
@@ -516,4 +517,50 @@ class Solution(object):
 ```
 Runtime: 68 ms, faster than 77.18% of Python online submissions for Palindrome Linked List.
 Memory Usage: 32.9 MB, less than 14.49% of Python online submissions for Palindrome Linked List.
+```
+
+### 【[ § ](#leetcode)】 [[ § 234 ](#---234)] - 2 
+이런 식으로 푸는 건 진짜 책에서 안봤으면 평생 생각도 못해봤을 것이다... 알고리즘의 세계란 참 놀랍다. 중간에 주석 친 거는 책을 안보고 기억에 의존해서 저렇게 적었었는데, 저러니 예시조차도 통과 못했었다. 그래서 나중에 저렇게 적은거랑 책에 적은거랑 어떤 식으로 다르게 동작하는 건지 살펴보려고 냅뒀다.
+
+```Python
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def isPalindrome(self, head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        
+        rev = None
+        fast = slow = head
+        
+        while fast and fast.next:
+            fast = fast.next.next
+            rev, rev.next, slow = slow, rev, slow.next
+        if fast:
+            slow = slow.next
+            
+        # while slow.next:
+        #     if rev != slow:
+        #         return False
+        #     rev = rev.next
+        #     slow = slow.next
+        
+        while rev and rev.val == slow.val:
+            rev = rev.next
+            slow = slow.next
+        
+        return not rev
+        
+            
+           
+```
+- 결과
+```
+Runtime: 64 ms, faster than 89.66% of Python online submissions for Palindrome Linked List.
+Memory Usage: 32.2 MB, less than 97.00% of Python online submissions for Palindrome Linked List.
 ```
