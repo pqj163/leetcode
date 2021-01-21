@@ -567,7 +567,7 @@ Memory Usage: 32.2 MB, less than 97.00% of Python online submissions for Palindr
 ```
 
 ## 【[ § ](#leetcode)】 21
-> **Palindrome Linked List**   
+> **Merge Two Sorted Lists**   
 [[문제](https://leetcode.com/problems/merge-two-sorted-lists/)] 
 
 |  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
