@@ -520,7 +520,7 @@ Memory Usage: 32.9 MB, less than 14.49% of Python online submissions for Palindr
 ```
 
 ### 【[ § ](#leetcode)】 [[ § 234 ](#---234)] - 2 
-이런 식으로 푸는 건 진짜 책에서 안봤으면 평생 생각도 못해봤을 것이다... 알고리즘의 세계란 참 놀랍다. 중간에 주석 친 거는 책을 안보고 기억에 의존해서 저렇게 적었었는데, 저러니 예시조차도 통과 못했었다. 그래서 나중에 저렇게 적은거랑 책에 적은거랑 어떤 식으로 다르게 동작하는 건지 살펴보려고 냅뒀다.
+이런 식으로 푸는 건 진짜 책에서 안봤으면 평생 생각도 못해봤을 것이다... 알고리즘의 세계란 참 놀랍다. 중간에 주석 친 거는 책을 안보고 기억에 의존해서 저렇게 적었었는데, 저러니 예시조차도 통과 못했었다. 그래서 나중에 저렇게 적은거랑 책에 적은거랑 어떤 식으로 다르게 동작하는 건지 살펴보려고 냅뒀다. 그리고 책에 다중 할당 어쩌고 하는 내용이 있던데 이것도 뭔소린지 잘... 나중에 다시 살펴봐야겠다.
 
 ```Python
 # Definition for singly-linked list.
@@ -558,6 +558,102 @@ class Solution(object):
         
             
            
+```
+- 결과
+```
+Runtime: 64 ms, faster than 89.66% of Python online submissions for Palindrome Linked List.
+Memory Usage: 32.2 MB, less than 97.00% of Python online submissions for Palindrome Linked List.
+```
+
+## 【[ § ](#leetcode)】 21
+> **Palindrome Linked List**   
+[[문제](https://leetcode.com/problems/merge-two-sorted-lists/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-01-17| 3  | X  | O  | O  | 1 (46.64%)  | 1 (11.42%) | [[ § 21-1 ](#-----21----1)] |
+|21-01-18| 5  | O  | O  | O  | 1 (19.93%)  | 1 (11.42%) | [[ § 21-2 ](#-----21----2)] |
+
+### 【[ § ](#leetcode)】 [[ § 21 ](#---21)] - 1 
+문제를 보는 과정에서 책을 언뜻 봤는데 재귀 어쩌고가 써있더라... 나는 재귀로 풀 생각조차 못했었는데. 알고리즘의 세계란 참 심오하다... 아, 그리고 빈배열 거르는 법이 아직도 헷갈린다. !list 이런 식으로 하는 건 줄 알았는데 그건 아니더라. 아마 이건 None을 거르는 거지 싶다. 결국 list = []으로 걸렀다.
+
+```Python
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def mergeTwoLists(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        
+        result = []
+        
+        while l1:
+            result.append(l1.val)
+            l1 = l1.next
+        
+        while l2:
+            result.append(l2.val)
+            l2 = l2.next
+        
+        if result == []:
+            return None
+        
+        result.sort()
+        result.reverse()
+        
+        re1, re2 = None, None
+        
+        for i, num in enumerate(result):
+            if i == 0:
+                re2 = ListNode()
+                re2.val = num
+            if (i+1) <= len(result):
+                re1 = ListNode()
+                try:
+                    re1.val = result[i+1]
+                except:
+                    re1.val = None
+                re1.next = re2
+            re2 = re1
+        
+        return re1.next
+                
+            
+```
+- 결과
+```
+Runtime: 28 ms, faster than 46.64% of Python online submissions for Merge Two Sorted Lists.
+Memory Usage: 13.7 MB, less than 11.42% of Python online submissions for Merge Two Sorted Lists.
+```
+
+### 【[ § ](#leetcode)】 [[ § 21 ](#---21)] - 2 
+이게 책에서 나온 재귀로 푸는 방법이다. 234 - 2와 마찬가지로 책을 안봤으면 이렇게도 풀 수 있다고는 결코 생각못해봤을거다. 코드도 간결하고 좋은데, 책에 적혀있는 말마따나 너무 함축돼서 이해가 힘들다.
+
+```Python
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def mergeTwoLists(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        
+        if (not l1) or (l2 and l1.val > l2.val):
+            l1, l2 = l2, l1
+        if l1:
+            l1.next = self.mergeTwoLists(l1.next, l2)
+        return l1       
 ```
 - 결과
 ```
