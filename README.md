@@ -11,6 +11,7 @@
 8. [15 - 3Sum](#---15)
 9. [234 - Palindrome Linked List](#---234)
 10. [21 - Merge Two Sorted Lists](#---21)
+11. [206 - Reverse Linked List](#---21)
 
 ## 【[ § ](#leetcode)】 937
 > **Reorder Data in Log Files**   
@@ -573,7 +574,7 @@ Memory Usage: 32.2 MB, less than 97.00% of Python online submissions for Palindr
 |  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
 |:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
 |21-01-21| 3  | X  | O  | O  | 1 (46.64%)  | 1 (11.42%) | [[ § 21-1 ](#-----21----1)] |
-|21-01-21| 4  | O  | O  | O  | 2 (19.93%)  | 2 (11.42%) | [[ § 21-2 ](#-----21----2)] |
+|21-01-21| 4  | O  | O  | O  | 2 (46.64%)  | 2 (11.42%) | [[ § 21-2 ](#-----21----2)] |
 
 ### 【[ § ](#leetcode)】 [[ § 21 ](#---21)] - 1 
 문제를 보는 과정에서 책을 언뜻 봤는데 재귀 어쩌고가 써있더라... 나는 재귀로 풀 생각조차 못했었는데. 알고리즘의 세계란 참 심오하다... 아, 그리고 빈배열 거르는 법이 아직도 헷갈린다. !list 이런 식으로 하는 건 줄 알았는데 그건 아니더라. 아마 이건 None을 거르는 거지 싶다. 결국 list = []으로 걸렀다.
@@ -658,6 +659,85 @@ class Solution(object):
 ```
 - 결과
 ```
-Runtime: 64 ms, faster than 89.66% of Python online submissions for Palindrome Linked List.
-Memory Usage: 32.2 MB, less than 97.00% of Python online submissions for Palindrome Linked List.
+Runtime: 28 ms, faster than 46.64% of Python online submissions for Merge Two Sorted Lists.
+Memory Usage: 13.6 MB, less than 11.42% of Python online submissions for Merge Two Sorted Lists.
+```
+
+
+## 【[ § ](#leetcode)】 206
+> **Reverse Linked List**   
+[[문제](https://leetcode.com/problems/merge-two-sorted-lists/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-01-21| 3  | X  | O  | O  | 1 (74.79%)  | 1 (26.44%) | [[ § 206-1 ](#-----206----1)] |
+|21-01-21| 4  | O  | O  | O  | err  | err | [[ § 206-2 ](#-----206----2)] |
+
+### 【[ § ](#leetcode)】 [[ § 206 ](#---206)] - 1 
+21번 문제를 풀 때 썼던 방법을 응용했다. 아, !obj 같은 문법은 원래 파이썬에 없는 모양이다. 그냥 not obj로 적었는데, 그럼 !obj 문법은 도대체 어디서 봤던거지...?
+
+```Python
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if not head:
+            return None
+        
+        node = head
+        
+        re1, re2 = None, ListNode()
+        
+        while node:
+            re2.val = node.val
+            if node.next:
+                re1 = ListNode()
+                re1.next = re2      
+                re2 = re1
+            node = node.next
+        
+        return re2         
+```
+- 결과
+```
+Runtime: 24 ms, faster than 74.79% of Python online submissions for Reverse Linked List.
+Memory Usage: 16.8 MB, less than 26.44% of Python online submissions for Reverse Linked List.
+```
+
+### 【[ § ](#leetcode)】 [[ § 206 ](#---206)] - 2 
+방향성은 비슷한 것 같은데, 책에서 나온 방법을 쓰면 늘 코드도 간결하면서 성능도 좋다... 라고 생각해서 방법이 비슷함에도 적었는데, 방금 제출 여러번 해봤더니 숫자가 계속 바뀐다. 네트워크 문제인지, 리트코드 문제인지 뭔지 모르겠지만 결과에 너무 연연하지 말아야겠다.
+책에 재귀로 하는 방법도 있었는데, 그냥 안적었다.
+
+> 근데 설명을 읽어보다 보니까, 방향성이 '비슷'할 뿐 완전히 다른 풀이인 것 같다. 나는 새로운 객체를 만들어서 리턴했지만, 이 방법은 기존의 연결리스트를 그대로 이용한다.
+
+```Python
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        node, prev = head, None
+        
+        while node:
+            next, node.next = node.next, prev
+            prev, node = node, next
+            
+        return prev
+```
+- 결과
+```
+err
 ```
