@@ -10,6 +10,7 @@
 7. [42 - Trapping Rain Water](#---42)
 8. [15 - 3Sum](#---15)
 9. [234 - Palindrome Linked List](#---234)
+10. [21 - Merge Two Sorted Lists](#---234)
 
 ## 【[ § ](#leetcode)】 937
 > **Reorder Data in Log Files**   
