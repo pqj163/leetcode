@@ -11,7 +11,7 @@
 8. [15 - 3Sum](#---15)
 9. [234 - Palindrome Linked List](#---234)
 10. [21 - Merge Two Sorted Lists](#---21)
-11. [206 - Reverse Linked List](#---21)
+11. [206 - Reverse Linked List](#---206)
 
 ## 【[ § ](#leetcode)】 937
 > **Reorder Data in Log Files**   
