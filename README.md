@@ -22,8 +22,8 @@
 17. [24 - Swap Nodes in Pairs](#---24)
 18. [328 - Odd Even Linked List](#---328)
 19. [92 - Reverse Linked List II](#---92)
-    - 스택, 큐
-20. 
+- 스택, 큐
+  20.  
 
 ## 【[ § ](#leetcode)】 937
 > **Reorder Data in Log Files**   
