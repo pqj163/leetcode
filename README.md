@@ -19,6 +19,9 @@
 13. [21 - Merge Two Sorted Lists](#---21)
 14. [206 - Reverse Linked List](#---206)
 15. [2 - Add Two Numbers](#---2)
+16. [24 - Swap Nodes in Pairs](#---24)
+17. [328 - Odd Even Linked List](#---328)
+18. [92 - Reverse Linked List II](#---92)
 
 ## 【[ § ](#leetcode)】 937
 > **Reorder Data in Log Files**   
@@ -751,15 +754,16 @@ err
 
 ## 【[ § ](#leetcode)】 2
 > **Add Two Numbers**   
-[[문제](https://leetcode.com/problems/add-two-numbers/submissions/)] 
+[[문제](https://leetcode.com/problems/add-two-numbers/)] 
 
 |  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
 |:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
-|21-01-22| 4  | X  | O  | O  | 1 (47.74%)  | 1 (46.94%) | [[ § 2-1 ](#-----2----1)] |
-|21-01-21| 4  | O  | O  | O  | 1 (67.10%)  | 2 (18.91%) | [[ § 2-2 ](#-----2----2)] |
+|21-01-22| 4  | X  | O  | O  | 2 (47.74%)  | 1 (46.94%) | [[ § 2-1 ](#-----2----1)] |
+|21-01-22| 5  | O  | O  | O  | 1 (67.10%)  | 2 (18.91%) | [[ § 2-2 ](#-----2----2)] |
 
 ### 【[ § ](#leetcode)】 [[ § 2 ](#---2)] - 1 
 처음에는 각 숫자를 다 더하는 줄 알았어서 아예 다르게 짰었고, 그 와중에도 0이 리턴되는 등 에러가 났었다. 그 다음에는 뒤집힌 리스트인 줄 몰랐어서 틀렸고 등등등...
+> 책에서도 비슷한 방법을 사용하는데, 다른 부분은 연결 리스트를 리스트로 바꾸는 함수, 그리고 리스트를 다시 연결리스트로 바꾸는 함수를 따로 구현했다는 점, 그리고 리스트에는 숫자로 넣고, 문자열로 바꿀 때 ''.join(map(str, list)) 이런 식으로 바꾼 다는 점 등이다. 더 나아가서 아예 리스트를 바로 숫자로 바꾸는 방식도 쓰는데, 이건 다음에 공부하기로ㅎㅎ
 
 ```Python
 # Definition for singly-linked list.
@@ -807,7 +811,7 @@ Runtime: 64 ms, faster than 47.74% of Python online submissions for Add Two Numb
 Memory Usage: 13.5 MB, less than 46.94% of Python online submissions for Add Two Numbers.
 ```
 
-### 【[ § ](#leetcode)】 [[ § 206 ](#---206)] - 2 
+### 【[ § ](#leetcode)】 [[ § 2 ](#---2)] - 2 
 늘상 하는 말이지만, 비슷해 보이는 방식도 책에서는 항상 더 깔끔하고 성능이 좋다...만 비슷한 방식은 이제는 뭔가 특별한 부분이 따로 있지 않으면 굳이 적지 않기로 했고, 늘상 하는 말이지만 책을 보지 않았으면 결코 생각지 못했을 방법이 늘상 나타난다. 전가산기라니...? 그런건 처음 듣는다. 아, 그리고 연결 리스트 문제를 풀 때마다 어떻게 하면 제일 처음 노드를 보존하기 수월할까 했는데, 여기서는 연달아 할당함으로써 이를 해결한다.
 
 ```Python
@@ -849,4 +853,273 @@ class Solution(object):
 ```
 Runtime: 60 ms, faster than 67.10% of Python online submissions for Add Two Numbers.
 Memory Usage: 13.7 MB, less than 18.91% of Python online submissions for Add Two Numbers.
+```
+
+## 【[ § ](#leetcode)】 24
+> **Swap Nodes in Pairs**   
+[[문제](https://leetcode.com/problems/swap-nodes-in-pairs/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-01-22| 1  | X  | O  | O  | 1 (86.06%)  | 3 (9.14%) | [[ § 24-1 ](#-----24----1)] |
+|21-01-22| 2  | O  | O  | O  | 2 (60.11%)  | 2 (29.31%) | [[ § 24-2 ](#-----24----2)] |
+|21-01-22| 3  | O  | O  | O  | 2 (60.11%)  | 1 (83.54%) | [[ § 24-3 ](#-----24----3)] |
+
+### 【[ § ](#leetcode)】 [[ § 24 ](#---24)] - 1 
+오... 예시도 안거치고 한번에!
+> 책에서는 i값을 사용하는 대신 node = node.next.next를 해버림으로써 또 다시 내 풀이 보다 간결하게 풀이한다... 이 방법은 그리 좋은 풀이법이 아니라는 말과 함께... 심지어는 면접관이 이렇게 풀지 말라고 하기도 한다고 한다...
+
+```Python
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def swapPairs(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        
+        node = head
+        i = 1
+        
+        while node:
+            if i % 2 != 0 and node.next:
+                temp = node.val
+                node.val = node.next.val
+                node.next.val = temp
+            
+            node = node.next
+            i += 1
+            
+        return head           
+```
+- 결과
+```
+Runtime: 16 ms, faster than 86.06% of Python online submissions for Swap Nodes in Pairs.
+Memory Usage: 13.7 MB, less than 9.14% of Python online submissions for Swap Nodes in Pairs.
+```
+
+### 【[ § ](#leetcode)】 [[ § 24 ](#---24)] - 2 
+여기서는 값만 바꾸는 게 아니라 노드의 구조 자체를 바꾼다. 주석으로 흐름을 풀이해보면 보다 이해가 잘될 것 같아 그래보기로 했다.
+
+```Python
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def swapPairs(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        
+        root = prev = ListNode() # root, prev 설정
+        
+        prev.next = head # root.next = head
+        
+        # 예시는 현재 노드가 3이라는 전제
+        while head and head.next:
+            # b에 현재 노드의 다음 노드를 담는다.
+            # ex. [1, 2(= prev), 3(= head), 4(= head.next), 5, 6]
+            # [1,2] → [3] → [4](= b) → [5,6]
+            b = head.next
+
+            # 다음 노드의 다음 노드가 
+            # 현재 노드의 다음 노드가 되도록 한다.
+            # ex. [1,2] → [ 3 ] → [5,6]
+            #             [ 4 ] ↗
+            head.next = b.next
+
+            # b(= 원래의 다음 노드)의 다음 노드가
+            # 현재 노드가 되도록 한다.
+            # ex. [1,2] ↘
+            #     [ 4 ] → [ 3 ] → [5,6]            
+            b.next = head
+            
+            # 이전 노드의 다음 노드는 b가 되면서,
+            # 구조의 순서가 완전히 바뀐다.
+            # ex. [1,2] → [4] → [3] → [5,6]
+            prev.next = b
+            
+            # head와 prev의 이동
+            # ex. [1, 2(= prev), 4, 3(= head), 5, 6]
+            #                  p→ p→↑        h→↑
+            #  => [1, 2, 4, 3(= prev), 5(= head), 6]
+            head = head.next
+            prev = prev.next.next
+            
+        return root.next
+```
+- 결과
+```
+Runtime: 16 ms, faster than 86.06% of Python online submissions for Swap Nodes in Pairs.
+Memory Usage: 13.4 MB, less than 59.09% of Python online submissions for Swap Nodes in Pairs.
+```
+
+
+### 【[ § ](#leetcode)】 [[ § 24 ](#---24)] - 3
+책에서 나온 재귀를 통해 푸는 방법인데, 개인적으로 재귀를 좋아하지 않는다. 흐름이 연상이 잘 안되기 때문이다. 이해하지 못했으면서 코드를 쓰는 건 무용하다고 느껴서 원래는 따로 안적으려고 했는데, 코드가 워낙 이쁘기에 이것도 주석으로 풀이해보기로 했다.
+
+```Python
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def swapPairs(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        # [1, 2, 3, 4, 5, 6]
+        # {}는 몇번째 재귀인지를 표시한 것이고,
+        # 아래에 적힌 번호 순서대로 코드가 흐른다.
+        
+        # - 함수 시작
+        # {0} 1. [1(= head), 2, 3, 4, 5, 6]
+        # {1} 3. [3(= head), 4, 5, 6]
+        # {2} 5. [5(= head), 6]
+        # {3} 7. [] => head = None ↓↓ 8번
+        if head and head.next:
+            # {0} 2. [1, 2(= p), 3, 4, 5, 6]
+            # {1} 4. [3, 4(= p), 5, 6]
+            # {2} 6. [5, 6(= p)]
+            p = head.next
+
+            # - 재귀 구간
+            # {0} 3. [1] -> swapPairs([3,4,5,6]) ↑ {1} 함수 시작 - 3번
+            # {0} 15. [1] -> [4,3,6,5]
+            #----------------------------------------------------------
+            # {1} 5. [3] -> swapPairs([5,6]) ↑ {2} 함수 시작 - 5번
+            # {1} 12. [3] -> [6,5]
+            #----------------------------------------------------------
+            # {2} 7. [5] -> swapPairs([]) ↑ {3} 함수 시작 - 7번
+            # {2} 9. [5] -> None
+            head.next = self.swapPairs(p.next)
+
+            # {0} 16. [2] -> [1] -> [4,3,6,5]
+            # {1} 13. [4] -> [3] -> [6,5]
+            # {2} 10. [6] -> [5]
+            p.next = head
+
+            # {0} 17. [2,1,4,3,6,5]를 리턴
+            # {1} 14. [4,3,6,5]를 리턴 ↑ {0} 재귀 구간 - 15번
+            # {2} 11. [6,5]을 리턴 ↑ {1} 재귀 구간 - 12번
+            return p
+        
+        # {3} 8. None을 리턴 ↑ {2} 재귀 구간 - 9번
+        return head
+```
+- 결과
+```
+Runtime: 20 ms, faster than 60.11% of Python online submissions for Swap Nodes in Pairs.
+Memory Usage: 13.4 MB, less than 83.54% of Python online submissions for Swap Nodes in Pairs.
+```
+
+## 【[ § ](#leetcode)】 328
+> **Odd Even Linked List**   
+[[문제](https://leetcode.com/problems/odd-even-linked-list/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-01-22| 3  | X  | O  | O  | 1 (89.11%)  | 1 (86.53%) | [[ § 328-1 ](#-----328----1)] |
+
+### 【[ § ](#leetcode)】 [[ § 328 ](#---328)] - 1 
+처음엔 odd랑 even의 루트를 잃어버려서 둘을 못붙였다가, 기껏 붙여놨더니 홀수 노드로 끝나면 짝수 노드가 None으로 끝나 even_head.next에 런타임 에러가 떠서 이를 거르기 위해 조건문을 추가했다. 풀면서 왠지 재귀로 하면 더 깔끔하게 할 수 있을 것 같고, 재귀랑 별개로 굳이 head is None이나 head.next 없이 빈 노드를 자연스레 거를 수 있는 방법이 있을 것 같다는 느낌이 왔다. 책에 방법이 써있겠지?
+> head is None은 어쩔 수 없는 것인지 책에도 써있지만, 빈 노드를 거르는 방법은 따로 있긴 했다. 그냥 반복문의 조건을 짝수로 하면 되는 거였다. 생각해보면 조건을 짝수로 넣으면 1개 짜리도 거를 수 있고, 홀수로 끝나도 even이 None이라 알아서 반복문이 종료될 것이며, 짝수로 끝나도 even.next가 없어 반복문이 종료될 것이기에 odd가 None이 되지도 않을텐데 미처 생각을 못했다... 그나저나 재귀로 하는 방법은 따로 안적혀있더라. 재귀로는 못하는건가? 근데 반복문으로 할 수 있는거면 분명 재귀로도 할 수 있을 것이리라. 다음에 한번 시도해봐야겠다.
+
+```Python
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def oddEvenList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        
+        if head is None:
+            return head
+        
+        root = odd_head = head
+        even_root = even_head = head.next
+        
+        while odd_head and odd_head.next:
+            odd_head.next = odd_head.next.next
+            if even_head.next:
+                even_head.next = even_head.next.next
+            if odd_head.next:
+                odd_head = odd_head.next
+            even_head = even_head.next
+            
+        odd_head.next = even_root
+        
+        return root         
+```
+- 결과
+```
+Runtime: 28 ms, faster than 89.11% of Python online submissions for Odd Even Linked List.
+Memory Usage: 16.9 MB, less than 86.53% of Python online submissions for Odd Even Linked List.
+```
+
+## 【[ § ](#leetcode)】92
+> **Odd Even Linked List**   
+[[문제](https://leetcode.com/problems/odd-even-linked-list/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-01-22| 3  | O  | O  | O  | 1 (66.56%)  | 1 (7.69%) | [[ § 92-1 ](#-----92----1)] |
+
+### 【[ § ](#leetcode)】 [[ § 92 ](#---92)] - 1 
+처음에 한번에 풀라고 해서 while문에 i로 숫자 세게 해놓고 m번째부터 n번째까지 하나씩 뒤집으면서 가려고 했는데, 자꾸 시간제한을 넘겨서 맞는 지 틀린 지 조차 확인할 수가 없었다. 근데 걸린 시간을 생각해보면 아마 내가 뭘 잘못해서 while문이 안끝났던 것 같다. 막상 책을 보니 따로 노드를 지정해서 하더라마는... 근데 솔직히 노드를 따로 지정하는 방향으로 생각했더라도 책 안봤으면 이런 방법은 생각지도 못했을 것이다.
+
+```Python
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def reverseBetween(self, head, m, n):
+        """
+        :type head: ListNode
+        :type m: int
+        :type n: int
+        :rtype: ListNode
+        """
+        
+        if not head or m == n:
+            return head
+        
+        root = start = ListNode()
+        root.next = head
+        
+        # Input: 1->2->3->4->5->NULL, m = 2, n = 4
+        
+        for _ in range(m-1):
+            start = start.next # start = 1
+        end = start.next # end = 2
+        
+        for _ in range (n - m):
+            # tmp = 2, 1 -> 3, 2 -> 4
+            tmp, start.next, end.next = start.next, end.next, end.next.next
+            start.next.next = tmp # 1 -> 3 -> 2(-> 4 -> 5)
+            # tmp = 3, 1 -> 4, 2 -> 5
+            # 1 -> 4 -> 3(-> 2 -> 5)
+        
+        return root.next      
+```
+- 결과
+```
+Runtime: 20 ms, faster than 66.56% of Python online submissions for Reverse Linked List II.
+Memory Usage: 14 MB, less than 7.69% of Python online submissions for Reverse Linked List II.
 ```
