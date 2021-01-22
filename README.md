@@ -15,13 +15,13 @@
 11. 
 12. 
 - 연결 리스트
-12. [234 - Palindrome Linked List](#---234)
-13. [21 - Merge Two Sorted Lists](#---21)
-14. [206 - Reverse Linked List](#---206)
-15. [2 - Add Two Numbers](#---2)
-16. [24 - Swap Nodes in Pairs](#---24)
-17. [328 - Odd Even Linked List](#---328)
-18. [92 - Reverse Linked List II](#---92)
+13. [234 - Palindrome Linked List](#---234)
+14. [21 - Merge Two Sorted Lists](#---21)
+15. [206 - Reverse Linked List](#---206)
+16. [2 - Add Two Numbers](#---2)
+17. [24 - Swap Nodes in Pairs](#---24)
+18. [328 - Odd Even Linked List](#---328)
+19. [92 - Reverse Linked List II](#---92)
 
 ## 【[ § ](#leetcode)】 937
 > **Reorder Data in Log Files**   
