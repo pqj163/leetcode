@@ -1073,9 +1073,9 @@ Runtime: 28 ms, faster than 89.11% of Python online submissions for Odd Even Lin
 Memory Usage: 16.9 MB, less than 86.53% of Python online submissions for Odd Even Linked List.
 ```
 
-## 【[ § ](#leetcode)】92
-> **Odd Even Linked List**   
-[[문제](https://leetcode.com/problems/odd-even-linked-list/)] 
+## 【[ § ](#leetcode)】 92
+> **Reverse Linked List II**   
+[[문제](https://leetcode.com/problems/reverse-linked-list-ii/)] 
 
 |  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
 |:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
