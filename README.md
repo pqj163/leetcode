@@ -1,17 +1,24 @@
 # leetcode
 
-1. [937 - Reorder Data in Log Files
-](#---937)
-2. [344 - Reverse String](#---344)
-3. [819 - Most Common Word](#---819)
-4. [49 -  Group Anagrams](#---49)
-5. [5 - Longest Palindromic Substring](#---5)
-6. [1 - Two Sum](#---1)
-7. [42 - Trapping Rain Water](#---42)
-8. [15 - 3Sum](#---15)
-9. [234 - Palindrome Linked List](#---234)
-10. [21 - Merge Two Sorted Lists](#---21)
-11. [206 - Reverse Linked List](#---206)
+- 문자열
+1. 
+2. [937 - Reorder Data in Log Files](#---937)
+3. [344 - Reverse String](#---344)
+4. [819 - Most Common Word](#---819)
+5. [49 -  Group Anagrams](#---49)
+6. [5 - Longest Palindromic Substring](#---5)
+- 배열
+7. [1 - Two Sum](#---1)
+8. [42 - Trapping Rain Water](#---42)
+9.  [15 - 3Sum](#---15)
+10. 
+11. 
+12. 
+- 연결 리스트
+12. [234 - Palindrome Linked List](#---234)
+13. [21 - Merge Two Sorted Lists](#---21)
+14. [206 - Reverse Linked List](#---206)
+15. [2 - Add Two Numbers](#---2)
 
 ## 【[ § ](#leetcode)】 937
 > **Reorder Data in Log Files**   
@@ -740,4 +747,106 @@ class Solution(object):
 - 결과
 ```
 err
+```
+
+## 【[ § ](#leetcode)】 2
+> **Add Two Numbers**   
+[[문제](https://leetcode.com/problems/add-two-numbers/submissions/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-01-22| 4  | X  | O  | O  | 1 (47.74%)  | 1 (46.94%) | [[ § 2-1 ](#-----2----1)] |
+|21-01-21| 4  | O  | O  | O  | 1 (67.10%)  | 2 (18.91%) | [[ § 2-2 ](#-----2----2)] |
+
+### 【[ § ](#leetcode)】 [[ § 2 ](#---2)] - 1 
+처음에는 각 숫자를 다 더하는 줄 알았어서 아예 다르게 짰었고, 그 와중에도 0이 리턴되는 등 에러가 났었다. 그 다음에는 뒤집힌 리스트인 줄 몰랐어서 틀렸고 등등등...
+
+```Python
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        
+        num1 = []
+        num2 = []
+        
+        while l1:
+            num1.append(str(l1.val))
+            l1 = l1.next
+            
+        while l2:
+            num2.append(str(l2.val))
+            l2 = l2.next
+            
+        num1 = int("".join(num1[::-1]))
+        num2 = int("".join(num2[::-1]))
+        renum = str(num1 + num2)
+        
+        re1, re2 = None, ListNode()
+        
+        for i, nu in enumerate(renum):
+            re2.val = int(nu)
+            re1 = ListNode()
+            re1.next = re2
+            re2 = re1
+            
+        return re1.next
+                   
+```
+- 결과
+```
+Runtime: 64 ms, faster than 47.74% of Python online submissions for Add Two Numbers.
+Memory Usage: 13.5 MB, less than 46.94% of Python online submissions for Add Two Numbers.
+```
+
+### 【[ § ](#leetcode)】 [[ § 206 ](#---206)] - 2 
+늘상 하는 말이지만, 비슷해 보이는 방식도 책에서는 항상 더 깔끔하고 성능이 좋다...만 비슷한 방식은 이제는 뭔가 특별한 부분이 따로 있지 않으면 굳이 적지 않기로 했고, 늘상 하는 말이지만 책을 보지 않았으면 결코 생각지 못했을 방법이 늘상 나타난다. 전가산기라니...? 그런건 처음 듣는다. 아, 그리고 연결 리스트 문제를 풀 때마다 어떻게 하면 제일 처음 노드를 보존하기 수월할까 했는데, 여기서는 연달아 할당함으로써 이를 해결한다.
+
+```Python
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        
+        root = head = ListNode(0)
+        
+        carry = 0
+        
+        while l1 or l2 or carry:
+            sum = 0
+            
+            if l1:
+                sum += l1.val
+                l1 = l1.next
+            
+            if l2:
+                sum += l2.val
+                l2 = l2.next
+                
+            carry, val = divmod(sum + carry, 10)
+            head.next = ListNode(val)
+            head = head.next
+        
+        return root.next
+```
+- 결과
+```
+Runtime: 60 ms, faster than 67.10% of Python online submissions for Add Two Numbers.
+Memory Usage: 13.7 MB, less than 18.91% of Python online submissions for Add Two Numbers.
 ```
