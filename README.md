@@ -10,7 +10,7 @@
 - 배열
 7. [1 - Two Sum](#---1)
 8. [42 - Trapping Rain Water](#---42)
-9.  [15 - 3Sum](#---15)
+9. [15 - 3Sum](#---15)
 10. 
 11. 
 12. 
@@ -22,6 +22,8 @@
 17. [24 - Swap Nodes in Pairs](#---24)
 18. [328 - Odd Even Linked List](#---328)
 19. [92 - Reverse Linked List II](#---92)
+    - 스택, 큐
+20. 
 
 ## 【[ § ](#leetcode)】 937
 > **Reorder Data in Log Files**   
