@@ -23,7 +23,18 @@
 18. [328 - Odd Even Linked List](#---328)
 19. [92 - Reverse Linked List II](#---92)
 - 스택, 큐
-  20.  
+20. [20 - Valid Parentheses](#---20)
+21. -
+22. -
+23. -
+24. -
+25. -
+- 데크, 우선순위 큐
+26. -
+27. -
+- 해시 테이블
+28. -
+29. [771 - Jewels and Stones](#---771)
 
 ## 【[ § ](#leetcode)】 937
 > **Reorder Data in Log Files**   
@@ -1124,4 +1135,113 @@ class Solution(object):
 ```
 Runtime: 20 ms, faster than 66.56% of Python online submissions for Reverse Linked List II.
 Memory Usage: 14 MB, less than 7.69% of Python online submissions for Reverse Linked List II.
+```
+
+## 【[ § ](#leetcode)】 20
+> **Valid Parentheses**   
+[[문제](https://leetcode.com/problems/valid-parentheses/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-01-28| 5  | O  | O  | O  | 1 (10.92%)  | 1 (98.68%) | [[ § 20-1 ](#-----20----1)] |
+
+### 【[ § ](#leetcode)】 [[ § 20 ](#---20)] - 1 
+매우 쉬우면서도 기본기를 점검할 수 있는 문제랬는데, 난 5번을 틀리고도 결국 책을 보고서야 풀었으니 난 기본이 안되어 있는 모양이다... 책을 보고도, 스택에 꽂혀서 반복문이 오른쪽에서 왼쪽으로 간다고 생각한 탓에 한동안 이게 왜 되는 건지를 이해를 못했다.
+
+```Python
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        
+        if len(s) < 2:
+            return False
+        
+        stack =[]
+        con = []
+        ch = 0
+        
+        table = {
+            "}":"{",
+            ")":"(",
+            "]":"[",
+        }
+        
+        for c in s:
+            if c not in table:
+                stack.append(c)
+            elif not stack or table[c] != stack.pop():
+                return False
+        return len(stack) == 0   
+```
+- 결과
+```
+Runtime: 40 ms, faster than 10.92% of Python online submissions for Valid Parentheses.
+Memory Usage: 13.3 MB, less than 98.68% of Python online submissions for Valid Parentheses.
+```
+
+## 【[ § ](#leetcode)】 316
+> **Valid Parentheses**   
+[[문제](https://leetcode.com/problems/remove-duplicate-letters/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-01-28| 2  | O  | O  | O  | 1 (13.19%)  | 1 (25.00%) | [[ § 316-1 ](#-----316----1)] |
+
+### 【[ § ](#leetcode)】 [[ § 316 ](#---316)] - 1 
+참... 이런 걸 도대체 어떻게 생각해내지? 처음에 문제를 제대로 이해못하고 풀었을 때는 이게 왜 별 3개지 싶었는데, 문제를 이해하니까 풀기도 싫고 풀이를 봐봤자 이해도 못할 것 같아서 풀이도 보기 싫어졌었다. 뭐... 막상보니 어떤 식으로 풀리는 건 지 이해는 되는데, 이런 식으로 푸는 다른 문제를 맞딱뜨렸을 때 풀 수 있겠냐고 한다면 글쎄...
+
+```Python
+class Solution(object):
+    def removeDuplicateLetters(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        for char in sorted(set(s)):
+            suffix = s[s.index(char):]
+            if set(s) == set(suffix):
+                return char + self.removeDuplicateLetters(suffix.replace(char,''))
+        return ''
+```
+- 결과
+```
+Runtime: 68 ms, faster than 13.19% of Python online submissions for Remove Duplicate Letters.
+Memory Usage: 13.9 MB, less than 25.00% of Python online submissions for Remove Duplicate Letters.
+```
+
+
+## 【[ § ](#leetcode)】 771
+> **Jewels and Stones**   
+[[문제](https://leetcode.com/problems/remove-duplicate-letters/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-01-29| 1  | X  | O  | O  | 1 (57.09%)  | 1 (61.26%) | [[ § 771-1 ](#-----771----1)] |
+
+### 【[ § ](#leetcode)】 [[ § 771 ](#---771)] - 1 
+책에 나온 풀이보다 더 간결하게 풀었다고 좋아했는데, 해시 테이블과는 상관없다고는 하나 '파이썬다운 방식'이라며 아예 1줄 짜리 풀이를 소개하더라...
+
+```Python
+class Solution(object):
+    def numJewelsInStones(self, jewels, stones):
+        """
+        :type jewels: str
+        :type stones: str
+        :rtype: int
+        """
+        table = defaultdict(int)
+        for j in jewels:
+            table[j] = 1
+            
+        i = list(map(lambda x:table[x], stones))
+        
+        return sum(i)
+```
+- 결과
+```
+Runtime: 20 ms, faster than 57.09% of Python online submissions for Jewels and Stones.
+Memory Usage: 13.5 MB, less than 61.26% of Python online submissions for Jewels and Stones.
 ```
