@@ -35,6 +35,17 @@
 - 해시 테이블
 28. -
 29. [771 - Jewels and Stones](#---771)
+30. -
+31. [347 - Top K Frequent Elements](#---347)
+- 그래프
+32. -
+33. -
+34. -
+35. [77 - Combinations](#---77)
+36. [39 - Combination Sum](#---39)
+37. -
+38. -
+39. [207- Course Schedul](#---207)
 
 ## 【[ § ](#leetcode)】 937
 > **Reorder Data in Log Files**   
@@ -1244,4 +1255,265 @@ class Solution(object):
 ```
 Runtime: 20 ms, faster than 57.09% of Python online submissions for Jewels and Stones.
 Memory Usage: 13.5 MB, less than 61.26% of Python online submissions for Jewels and Stones.
+```
+
+## 【[ § ](#leetcode)】 347
+> **Top K Frequent Elements**   
+[[문제](https://leetcode.com/problems/top-k-frequent-elements/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-01-29| 2  | X  | O  | O  | 1 (22.85%)  | 1 (32.07%) | [[ § 347-1 ](#-----347----1)] |
+
+### 【[ § ](#leetcode)】 [[ § 347 ](#---347)] - 1 
+책에서 왜 그렇게 해석했는 지는 모르겠는데, k번 이상 등장하는 요소를 추출하는 것이 아니라 k개까지의 자주 등장하는 요소를 추출하는 것이다. 덕분에 1번 틀렸다.
+그리고 아니나 다를까 또 한줄 짜리 코드를 소개한다... 그리고 책에서 처음 카운터를 써서 풀 때, 카운터의 메서드를 쓰지 않고 굳이 자료구조를 하나 더 끌어와서 푸는데, 다른 풀이에서는 카운터의 메서드를 쓰는 걸 보면 아마 그냥 자료구조를 이용해 푸는 풀이를 보여줌으로써 자료구조에 대한 설명을 추가로 하기 위해서였던 것 같다.
+
+```Python
+class Solution(object):
+    def topKFrequent(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        
+        table = Counter(nums)
+        result = []
+        for pair in table.most_common(k):
+            result.append(pair[0])
+        
+        return result
+        # 한줄로는,
+        # return list(zip(*collections.Counter(nums).most_common(k)))[0]
+```
+- 결과
+```
+Runtime: 108 ms, faster than 22.85% of Python online submissions for Top K Frequent Elements.
+Memory Usage: 17 MB, less than 32.07% of Python online submissions for Top K Frequent Elements.
+```
+
+## 【[ § ](#leetcode)】 77
+> **Combinations**   
+[[문제](https://leetcode.com/problems/combinations/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-01-29| 1  | O  | O  | O  | 1 (22.85%)  | 1 (32.07%) | [[ § 77-1 ](#-----77----1)] |
+
+### 【[ § ](#leetcode)】 [[ § 77 ](#---77)] - 1 
+이번에도 'k개의 조합을 리턴하라'라며 번역이 다소 모호하게 되어있다. 다만 이번에는 아예 틀린 것은 아니고, 예시를 보면 어떤 뜻인지 알 수 있긴 하다. 이제 슬슬 책을 안보고는 풀려는 시도조차 하기 힘든 문제가 계속 나온다. 너무 괴념치않고 그냥 지금은 배우는 중이라 어쩔 수 없다고 생각하려하며, 책을 아예 따라한 대부분의 문제들은 나중에 직접 풀어보고 추가하고자 따로 추가하지 않았다. 알고리즘을 이용하되 k-1을 재귀 호출함으로써 모듈에 준하는 속도를 낼 수 있다고 한다는데, 어떤 방법인지 짐작도 안간다. 책에서도 직관적인 이해가 힘들어 굳이 그 방법은 쓰지 않았다고 한다. 나중에 도전해보면 좋겠다.
+
+```Python
+class Solution(object):
+    def combine(self, n, k):
+        """
+        :type n: int
+        :type k: int
+        :rtype: List[List[int]]
+        """
+        results = []
+        
+        # elements = 탐색 루트
+        # start = 탐색 시작 지점
+        # k = 탐색 거리
+        def dfs(elements, start, k):
+            # 남은 탐색 거리가 0이 되면,
+            # 지금까지 거쳐온 탐색 루트를 결과에 추가
+            if k == 0:
+                results.append(elements[:])
+            
+            # 탐색 시작 지점 ~ n 사이의 i에 대해,
+            # start와 n+1이 같아지면 그냥 스킵되는 듯?
+            for i in range(start, n+1):
+                # i를 탐색 루트에 추가
+                elements.append(i)
+                # 재귀(탐색 루트, 탐색 시작 지점 + 1, 탐색 거리 - 1)
+                dfs(elements, i+1, k-1)
+                # 재귀로부터 빠져나오면서 탐색 루트도 다시 한칸 뒤로
+                elements.pop()
+        
+        dfs([], 1, k)
+        
+        return results
+        
+        # return list(map(list,itertools.combinations(range(1, n+1),k)))
+        # itertools는 만능?
+```
+- 결과
+```
+Runtime: 560 ms, faster than 71.15% of Python online submissions for Combinations.
+Memory Usage: 15.1 MB, less than 29.20% of Python online submissions for Combinations.
+```
+
+## 【[ § ](#leetcode)】 39
+> **Combination Sum**   
+[[문제](https://leetcode.com/problems/combination-sum/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-01-29| 1 -> 2 | X  | O  | X -> O  | 1(5.05) | 1(41.25) | [[ § 39-1 ](#-----39----1)] |
+
+### 【[ § ](#leetcode)】 [[ § 39 ](#---39)] - 1 
+그래프 문제 중 처음으로 혼자 푸는 것에 도전해서 예시나마 통과한 풀이이기에 추가해봤다. 정답도, 아웃풋도 수가 너무 많아서 정확히 어떻게 틀린 것인지 판별이 안됐는데, 일단 아웃풋의 수가 정답의 수보다 월등히 많다. 혹시 target과 일치하지 않는 루트도 들어갔나 싶어 제거하는 코드를 추가해봤는데도 여전히 많아, 모종의 이유로 중복값이 들어간건가 싶어 보니 아니나 다를까 바로 첫줄에 중복값이 있더라. 근데 왜 들어갔지...?
+> 내가 빡대가리였다. 중간에 탐색 루트를 정렬한 후, 중복을 방지하기 위해  결과에 정렬된 탐색루트와 일치하는 루트가 있는 지 확인해놓고, 정작 결과에는 정렬 이전의 루트를 추가했다. 그거 고치니 바로 되더라.
+
+```Python
+class Solution(object):
+    def combinationSum(self, candidates, target):
+        """
+        :type candidates: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        
+        results = []
+        
+        def dfs(vec, val):
+            if val >= target:
+                if val == target:
+                    re = sorted(vec[:])
+                    if re not in results:
+                        results.append(vec[:])
+                return
+            
+            for n in candidates:
+                vec.append(n)
+                dfs(vec, sum(vec))
+                vec.pop()
+                
+        dfs([], 0)
+        
+        return results
+```
+- 결과
+```
+~~정답이 너무 길었다...~~
+
+Runtime: 664 ms, faster than 5.05% of Python online submissions for Combination Sum.
+Memory Usage: 13.6 MB, less than 41.25% of Python online submissions for Combinatio
+n Sum.
+```
+## 【[ § ](#leetcode)】 207
+> **Course Schedule**   
+[[문제](https://leetcode.com/problems/course-schedule/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-01-29| 3  | O  | O  | ?  |     -      |     -      | [[ § 207-1 ](#-----207----1)] |
+
+### 【[ § ](#leetcode)】 [[ § 207 ](#---207)] - 1 
+이유는 모르겠는데, 이렇게 하면 시간제한을 초과한다. 예시를 그대로 적은 것 같은데 왜...? 네트워크나 뭐 그런거 문제인 것 같다.
+```Python
+class Solution(object):
+    def canFinish(self, numCourses, prerequisites):
+        """
+        :type numCourses: int
+        :type prerequisites: List[List[int]]
+        :rtype: bool
+        """
+        
+        graph = defaultdict(list)
+        
+        for x, y in prerequisites:
+            graph[x].append(y)
+        
+        traced = set()
+        
+        def dfs(i):
+            # 탐색한 곳을 다시 탐색해야 하는 상황이 오면
+            # False를 리턴
+            if i in traced:
+                return False
+            
+            # 현재 노드를 탐색했음을 기록
+            traced.add(i)
+            
+            # 현재 노드가 탐색해야 하는 곳(들)인 y에 대해,
+            for y in graph[i]:
+                # 재귀를 했는데 한번이라도 False가 리턴됐을 경우,
+                # 차례대로 올라오면서 계속 False를 리턴함으로써
+                # 최종 결과도 False가 됨
+                if not dfs(y):
+                    return False
+                
+            # False가 리턴되지 않은 경우,
+            # 이전 노드로 돌아오는 과정에서
+            # 탐색했던 노드를 탐색 기록으로부터 삭제
+            traced.remove(i)
+                
+            # 단 한번도 False가 없었으면 True를 리턴
+            return True
+        
+        for x in list(graph):
+            if not dfs(x):
+                return False
+        
+        return True
+```
+- 결과
+```
+?
+```
+
+### 【[ § ](#leetcode)】 [[ § 207 ](#---207)] - 1 
+위 풀이의 가지치기 버전. 이때는 제대로 결과가 나왔다.
+```Python
+class Solution(object):
+    def canFinish(self, numCourses, prerequisites):
+        """
+        :type numCourses: int
+        :type prerequisites: List[List[int]]
+        :rtype: bool
+        """
+        
+        graph = defaultdict(list)
+        
+        for x, y in prerequisites:
+            graph[x].append(y)
+        
+        traced = set()
+        visited = set()
+        
+        def dfs(i):
+            # 탐색한 곳을 다시 탐색해야 하는 상황이 오면
+            # False를 리턴
+            if i in traced:
+                return False
+
+            # 이미 검증이 끝난 곳이면 True를 리턴
+            if i in visited:
+                return True
+            
+            # 현재 노드를 탐색했음을 기록
+            traced.add(i)
+            
+            # 현재 노드가 탐색해야 하는 곳(들)인 y에 대해,
+            for y in graph[i]:
+                # 재귀를 했는데 한번이라도 False가 리턴됐을 경우,
+                # 차례대로 올라오면서 계속 False를 리턴함으로써
+                # 최종 결과도 False가 됨
+                if not dfs(y):
+                    return False
+                
+            # False가 리턴되지 않은 경우,
+            # 이전 노드로 돌아오는 과정에서
+            # 탐색했던 노드를 탐색 기록으로부터 삭제
+            traced.remove(i)
+
+            # 검증이 끝난 노드임을 기록
+            visited.add(i)
+                
+            # 단 한번도 False가 없었으면 True를 리턴
+            return True
+        
+        for x in list(graph):
+            if not dfs(x):
+                return False
+        
+        return True
+```
+- 결과
+```
+?
 ```
