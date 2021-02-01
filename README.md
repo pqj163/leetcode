@@ -47,6 +47,8 @@
 38. -
 39. [207- Course Schedul](#---207)
 
+# 문자열 [[↑]](#---문자열)
+
 ## 【[ § ](#leetcode)】 937
 > **Reorder Data in Log Files**   
 [[문제](https://leetcode.com/problems/reorder-data-in-log-files/)] 
@@ -272,6 +274,12 @@ Runtime: 72 ms, faster than 98.72% of Python online submissions for Group Anagra
 Memory Usage: 17.6 MB, less than 57.46% of Python online submissions for Group Anagrams.
 ```
 
+
+
+
+
+
+
 ## 【[ § ](#leetcode)】 5
 > **Longest Palindromic Substring**   
 [[문제](https://leetcode.com/problems/longest-palindromic-substring/)] 
@@ -316,6 +324,7 @@ Runtime: 240 ms, faster than 94.42% of Python online submissions for Longest Pal
 Memory Usage: 13.5 MB, less than 76.37% of Python online submissions for Longest Palindromic Substring.
 ```
 
+# 배열
 
 ## 【[ § ](#leetcode)】 1
 > **Two Sum**   
@@ -501,6 +510,7 @@ Runtime: 684 ms, faster than 75.41% of Python online submissions for 3Sum.
 Memory Usage: 16.8 MB, less than 49.89% of Python online submissions for 3Sum.
 ```
 
+# 연결리스트
 
 ## 【[ § ](#leetcode)】 234
 > **Palindrome Linked List**   
@@ -1148,6 +1158,8 @@ Runtime: 20 ms, faster than 66.56% of Python online submissions for Reverse Link
 Memory Usage: 14 MB, less than 7.69% of Python online submissions for Reverse Linked List II.
 ```
 
+# 스택, 큐
+
 ## 【[ § ](#leetcode)】 20
 > **Valid Parentheses**   
 [[문제](https://leetcode.com/problems/valid-parentheses/)] 
@@ -1223,6 +1235,9 @@ Runtime: 68 ms, faster than 13.19% of Python online submissions for Remove Dupli
 Memory Usage: 13.9 MB, less than 25.00% of Python online submissions for Remove Duplicate Letters.
 ```
 
+# 데크, 우선순위 큐
+
+# 해시 테이블
 
 ## 【[ § ](#leetcode)】 771
 > **Jewels and Stones**   
@@ -1292,6 +1307,8 @@ class Solution(object):
 Runtime: 108 ms, faster than 22.85% of Python online submissions for Top K Frequent Elements.
 Memory Usage: 17 MB, less than 32.07% of Python online submissions for Top K Frequent Elements.
 ```
+
+# 그래프
 
 ## 【[ § ](#leetcode)】 77
 > **Combinations**   
@@ -1394,6 +1411,7 @@ Runtime: 664 ms, faster than 5.05% of Python online submissions for Combination 
 Memory Usage: 13.6 MB, less than 41.25% of Python online submissions for Combinatio
 n Sum.
 ```
+
 ## 【[ § ](#leetcode)】 207
 > **Course Schedule**   
 [[문제](https://leetcode.com/problems/course-schedule/)] 
