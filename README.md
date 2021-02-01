@@ -1308,9 +1308,9 @@ Runtime: 108 ms, faster than 22.85% of Python online submissions for Top K Frequ
 Memory Usage: 17 MB, less than 32.07% of Python online submissions for Top K Frequent Elements.
 ```
 
-# 그래프[[↑]](#--그래프-)
+# 그래프 [[↑]](#--그래프-)
 
-## 【[ § ](#leetcode)】 77
+## 【[ § ](#leetcode)】 77 [[↑]](#그래프-)
 > **Combinations**   
 [[문제](https://leetcode.com/problems/combinations/)] 
 
