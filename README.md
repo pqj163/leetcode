@@ -7,14 +7,14 @@
 4. [819 - Most Common Word](#---819)
 5. [49 -  Group Anagrams](#---49)
 6. [5 - Longest Palindromic Substring](#---5)
-#### - 배열 [[↓]](#문자열-)
+#### - 배열 [[↓]](#배열-)
 7. [1 - Two Sum](#---1)
 8. [42 - Trapping Rain Water](#---42)
 9. [15 - 3Sum](#---15)
 10. 
 11. 
 12. 
-#### - 연결 리스트 [[↓]](#문자열-)
+#### - 연결 리스트 [[↓]](#연결-리스트-)
 13. [234 - Palindrome Linked List](#---234)
 14. [21 - Merge Two Sorted Lists](#---21)
 15. [206 - Reverse Linked List](#---206)
@@ -22,22 +22,22 @@
 17. [24 - Swap Nodes in Pairs](#---24)
 18. [328 - Odd Even Linked List](#---328)
 19. [92 - Reverse Linked List II](#---92)
-#### - 스택, 큐 [[↓]](#문자열-)
+#### - 스택, 큐 [[↓]](#스택-큐-)
 20. [20 - Valid Parentheses](#---20)
 21. -
 22. -
 23. -
 24. -
 25. -
-#### - 데크, 우선순위 큐 [[↓]](#문자열-)
+#### - 데크, 우선순위 큐 [[↓]](#데크-우선순위-큐-)
 26. -
 27. -
-#### - 해시 테이블 [[↓]](#문자열-)
+#### - 해시 테이블 [[↓]](#해시-테이블-)
 28. -
 29. [771 - Jewels and Stones](#---771)
 30. -
 31. [347 - Top K Frequent Elements](#---347)
-#### - 그래프 [[↓]](#문자열-)
+#### - 그래프 [[↓]](#그래프-)
 32. -
 33. -
 34. -
@@ -47,7 +47,7 @@
 38. -
 39. [207- Course Schedul](#---207)
 
-# 문자열 [[↑]](#--문자열)
+# 문자열 [[↑]](#--문자열-)
 
 ## 【[ § ](#leetcode)】 937
 > **Reorder Data in Log Files**   
@@ -324,7 +324,7 @@ Runtime: 240 ms, faster than 94.42% of Python online submissions for Longest Pal
 Memory Usage: 13.5 MB, less than 76.37% of Python online submissions for Longest Palindromic Substring.
 ```
 
-# 배열 [[↑]](#--배열)
+# 배열 [[↑]](#--배열-)
 
 ## 【[ § ](#leetcode)】 1
 > **Two Sum**   
@@ -510,7 +510,7 @@ Runtime: 684 ms, faster than 75.41% of Python online submissions for 3Sum.
 Memory Usage: 16.8 MB, less than 49.89% of Python online submissions for 3Sum.
 ```
 
-# 연결 리스트 [[↑]](#--연결-리스트)
+# 연결 리스트 [[↑]](#--연결-리스트-)
 
 ## 【[ § ](#leetcode)】 234
 > **Palindrome Linked List**   
@@ -1158,7 +1158,7 @@ Runtime: 20 ms, faster than 66.56% of Python online submissions for Reverse Link
 Memory Usage: 14 MB, less than 7.69% of Python online submissions for Reverse Linked List II.
 ```
 
-# 스택, 큐 [[↑]](#--스택-큐)
+# 스택, 큐 [[↑]](#--스택-큐-)
 
 ## 【[ § ](#leetcode)】 20
 > **Valid Parentheses**   
@@ -1235,9 +1235,9 @@ Runtime: 68 ms, faster than 13.19% of Python online submissions for Remove Dupli
 Memory Usage: 13.9 MB, less than 25.00% of Python online submissions for Remove Duplicate Letters.
 ```
 
-# 데크, 우선순위 큐 [[↑]](#--데크-우선순위-큐)
+# 데크, 우선순위 큐 [[↑]](#--데크-우선순위-큐-)
 
-# 해시 테이블 [[↑]](#--해시-테이블)
+# 해시 테이블 [[↑]](#--해시-테이블-)
 
 ## 【[ § ](#leetcode)】 771
 > **Jewels and Stones**   
@@ -1308,7 +1308,7 @@ Runtime: 108 ms, faster than 22.85% of Python online submissions for Top K Frequ
 Memory Usage: 17 MB, less than 32.07% of Python online submissions for Top K Frequent Elements.
 ```
 
-# 그래프[[↑]](#--그래프)
+# 그래프[[↑]](#--그래프-)
 
 ## 【[ § ](#leetcode)】 77
 > **Combinations**   
