@@ -1310,7 +1310,7 @@ Memory Usage: 17 MB, less than 32.07% of Python online submissions for Top K Fre
 
 # 그래프 [[↑]](#--그래프-)
 
-## 【[ § ](#leetcode)】 77 [[↑]](#그래프-)
+## 【[ § ](#leetcode)】 77
 > **Combinations**   
 [[문제](https://leetcode.com/problems/combinations/)] 
 
