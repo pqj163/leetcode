@@ -1690,16 +1690,23 @@ Runtime: 60 ms, faster than 19.20% of Python3 online submissions for Diameter of
 Memory Usage: 16.3 MB, less than 62.98% of Python3 online submissions for Diameter of Binary Tree.
 ```
 
-## 【[ § ](#leetcode)】 687 [[↑]](#트리-)
-> **Longest Univalue Path**   
-[[문제](https://leetcode.com/problems/diameter-of-binary-tree/)] 
+## 【[ § ](#leetcode)】 226 [[↑]](#트리-)
+> **Invert Binary Tree**   
+[[문제](https://leetcode.com/problems/invert-binary-tree/)] 
 
 |  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
 |:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
-|21-02-04| 6  | O  | O  | O  |  1 (80.02) |  1 (52.46) | [[ § 687-1 ](#-----687----1-)] |
+|21-02-04| 1  | X  | O  | O  |  1 (86.14) |  1 (75.46) | [[ § 226-1 ](#-----226----1-)] |
 
-### 【[ § ](#leetcode)】 [[ § 687 ](#---687-)] - 1 [[↑]](#그래프-)
-분명 혼자 힘으로 풀 수 있을 것 같았는데, 자꾸 뭘 하나씩 틀리더라. 일직선이 아닌 경우를 놓친다던지, 전체가 값이 다 똑같아 선이 여러 갈래로 갈라져 그 모든 갈래의 길이를 합산해버린다던지... 결국 책을 봐야 했는데, 지금 상태가 안좋은 건지 뭔지 보고 따라쳐놓고 안됐을 때 혼자서 왜 안된건지 생각안해보고 바로 책 다시 들여다보게 되더라. 막상 보니 조금만 생각해보면 책을 다시 안봤어도 되는 거 였는데, 공부는 이런 식으로 하면 안된다는 생각이 퍼뜩 들었다. 내가 이해하지 못한 코드를 이런 식으로 공부하면 안된다.
+### 【[ § ](#leetcode)】 [[ § 226 ](#---226-)] - 1 [[↑]](#그래프-)
+설마 이게 되나? 했는데 단번에 됐다. 위의 문제들로 떨어져있던 자신감을 단번에 채워주었다. 근데 다른 한편으로는 이렇게 쉬운 문제에... 자신감이 채워진다는게 좀... 그런 것 같기도 하고....ㅎㅎ
+> 그리고 또 어김없이 책에서는 같은 방식의 더 깔끔하고 간결하며 효율적인 풀이를 선보인다.
+
+> 책에서 소개한 너비우선탐색은 이 방식과는 다르게 내려가면서 스왑한다. 너비우선탐색을 쓰면 큐에 자연스럽게 각 층별 노드를 차례대로 담으면서 스왑한다.
+
+> 여기서 깊이 우선 탐색이라며 뭘 하나 더 소개한다. 너비우선탐색에서 조금 바뀐 정도인데, 깊이 우선 탐색 = 재귀 라고 생각했는데 꼭 그런 식은 아닌가 보다. 너비우선탐색에서는 자연스레 층별로 큐에 노드가 담기고 층별로 스왑이 되는 것에 반해, 깊이우선탐색은 스택을 써서 노드를 쭉 따라가 리프까지 가고 나서야 반대쪽 노드를 탐색하게 되는 식이다.
+
+> 그외에 후위순회라면서 또 아주 조금 바뀐 풀이를 선보이는데, 아마 왼쪽부터 탐색하면 전위고 오른쪽부터 탐색하면 후위인 모양이다.
 ```Python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -1708,34 +1715,19 @@ Memory Usage: 16.3 MB, less than 62.98% of Python3 online submissions for Diamet
 #         self.left = left
 #         self.right = right
 class Solution:
-    longest = 0
-    def longestUnivaluePath(self, root: TreeNode) -> int:
+    def invertTree(self, root: TreeNode) -> TreeNode:
         def dfs(node):
             if not node:
-                return 0
+                return None
             
-            left = dfs(node.left)
-            right = dfs(node.right)
+            node.left, node.right = dfs(node.right), dfs(node.left)
             
-            if node.left and node.left.val == node.val:
-                left += 1
-            else:
-                left = 0
-            if node.right and node.right.val == node.val:
-                right += 1
-            else:
-                right = 0
-            
-            self.longest = max(self.longest, left + right)
-            
-            return max(left, right)
+            return node
         
-        dfs(root)
-        
-        return self.longest
+        return dfs(root)
 ```
 - 결과
 ```
-Runtime: 60 ms, faster than 19.20% of Python3 online submissions for Diameter of Binary Tree.
-Memory Usage: 16.3 MB, less than 62.98% of Python3 online submissions for Diameter of Binary Tree.
+Runtime: 28 ms, faster than 86.14% of Python3 online submissions for Invert Binary Tree.
+Memory Usage: 14.1 MB, less than 75.46% of Python3 online submissions for Invert Binary Tree.
 ```
