@@ -45,7 +45,29 @@
 36. [39 - Combination Sum](#---39-)
 37. -
 38. -
-39. [207- Course Schedul](#---207-)
+39. [207 - Course Schedul](#---207-)
+#### - 최단 경로 문제 [[↓]](#최단-경로-문제-)
+40.  -
+41.  -
+#### - 트리 [[↓]](#트리-)
+42.  [104 - Maximum Depth of Binary Tree](#---104-)
+43.  -
+44.  -
+45.  -
+46.  -
+47.  -
+48.  -
+49.  -
+50.  -
+51.  -
+52.  -
+53.  -
+54.  -
+#### - 힙 [[↓]](#힙-)
+55.  -
+#### - 트라이 [[↓]](#트라이-)
+56.  -
+57.  -
 
 # 문자열 [[↑]](#--문자열-)
 
@@ -1535,4 +1557,85 @@ class Solution(object):
 - 결과
 ```
 ?
+```
+
+# 트리 [[↑]](#--트리-)
+
+## 【[ § ](#leetcode)】 104 [[↑]](#트리-)
+> **Maximum Depth of Binary Tree**   
+[[문제](https://leetcode.com/problems/maximum-depth-of-binary-tree/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-02-24| 1  | X  | O  | O  |  1 (49.85) |  1 (10.56) | [[ § 104-1 ](#-----104----1-)] |
+
+### 【[ § ](#leetcode)】 [[ § 104 ](#---104-)] - 1 [[↑]](#그래프-)
+이 문제 풀면서 알고리즘 공부한 보람이 있구나 싶었다. 내가 그토록 꺼림칙하게 여겼던 재귀를 스스로 이용해서 한번에 풀었다는게 참 감격스럽더라. 비록 굉장히 쉬운 문제였기는 하지만, 내가 지금까지 공부를 해오지 않았더라면 아마 못풀었을 것이라 생각되니 굳이 스스로 별 거 아니라고 여기기 보다는 대견하게 여기고 싶다.
+> 근데 정작 책에서 소개한 너비우선탐색 방식은 생각도 못했다. 여전히 아직 많이 부족하구나.
+```Python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxDepth(self, root: TreeNode) -> int:
+        if not root:
+            return 0
+        node = root
+        d = 1
+        
+        def dig(node, d):
+            if node.left or node.right:
+                ln = dig(node.left,d) if node.left else 0
+                rn = dig(node.right,d) if node.right else 0
+                n = ln if ln >= rn else rn
+                d += n
+            return d
+        
+        return dig(node,d)
+```
+- 결과
+```
+Runtime: 44 ms, faster than 49.85% of Python3 online submissions for Maximum Depth of Binary Tree.
+Memory Usage: 16.4 MB, less than 10.56% of Python3 online submissions for Maximum Depth of Binary Tree.
+```
+
+## 【[ § ](#leetcode)】 543 [[↑]](#트리-)
+> **Diameter of Binary Tree**   
+[[문제](https://leetcode.com/problems/diameter-of-binary-tree/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-02-24| 1  | O  | O  | O  |  1 (19.20) |  1 (62.98) | [[ § 543-1 ](#-----543----1-)] |
+
+### 【[ § ](#leetcode)】 [[ § 543 ](#---543-)] - 1 [[↑]](#그래프-)
+참... 낫 놓고 기역자도 모른다고... 왠지 위의 문제에서 쓴 방식을 응용하면 될 것 같다고는 생각은 하고 있었지만 생각하려니 머리 아파서 책을 봤는데, 응용까지 갈 것도 없이 코드를 조금만 바꾸면 되는 거 였다. 돌이켜보면, 위에서 깊이우선탐색을 사용함으로써 굳이 리소스를 낭비했으면서, 정작 깊이우선탐색이 필요했던 이 문제는 스스로 해결을 못한 셈이니, 참으로 통탄스러운 바가 아닐 수 없다.
+```Python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    longest = 0
+    def diameterOfBinaryTree(self, root: TreeNode) -> int:
+        def dig(node):
+            if not node:
+                return -1
+            ln = dig(node.left)
+            rn = dig(node.right)
+            self.longest = max(self.longest, ln+rn+2)
+            return max(ln,rn)+1
+            
+            
+        dig(root)
+        return self.longest
+```
+- 결과
+```
+Runtime: 60 ms, faster than 19.20% of Python3 online submissions for Diameter of Binary Tree.
+Memory Usage: 16.3 MB, less than 62.98% of Python3 online submissions for Diameter of Binary Tree.
 ```
