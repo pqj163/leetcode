@@ -2,28 +2,28 @@
 
 #### - 문자열 [[↓]](#문자열-)
 1. 
-2. [937 - Reorder Data in Log Files](#---937-)
-3. [344 - Reverse String](#---344-)
-4. [819 - Most Common Word](#---819-)
-5. [49 -  Group Anagrams](#---49-)
-6. [5 - Longest Palindromic Substring](#---5-)
+2. [937. Reorder Data in Log Files](#---937-)
+3. [344. Reverse String](#---344-)
+4. [819. Most Common Word](#---819-)
+5. [49.  Group Anagrams](#---49-)
+6. [5. Longest Palindromic Substring](#---5-)
 #### - 배열 [[↓]](#배열-)
-7. [1 - Two Sum](#---1-)
-8. [42 - Trapping Rain Water](#---42-)
-9. [15 - 3Sum](#---15-)
+7. [1. Two Sum](#---1-)
+8. [42. Trapping Rain Water](#---42-)
+9. [15. 3Sum](#---15-)
 10. 
 11. 
 12. 
 #### - 연결 리스트 [[↓]](#연결-리스트-)
-13. [234 - Palindrome Linked List](#---234-)
-14. [21 - Merge Two Sorted Lists](#---21-)
-15. [206 - Reverse Linked List](#---206-)
-16. [2 - Add Two Numbers](#---2-)
-17. [24 - Swap Nodes in Pairs](#---24-)
-18. [328 - Odd Even Linked List](#---328-)
-19. [92 - Reverse Linked List II](#---92-)
+13. [234. Palindrome Linked List](#---234-)
+14. [21. Merge Two Sorted Lists](#---21-)
+15. [206. Reverse Linked List](#---206-)
+16. [2. Add Two Numbers](#---2-)
+17. [24. Swap Nodes in Pairs](#---24-)
+18. [328. Odd Even Linked List](#---328-)
+19. [92. Reverse Linked List II](#---92-)
 #### - 스택, 큐 [[↓]](#스택-큐-)
-20. [20 - Valid Parentheses](#---20-)
+20. [20. Valid Parentheses](#---20-)
 21. -
 22. -
 23. -
@@ -34,26 +34,26 @@
 27. -
 #### - 해시 테이블 [[↓]](#해시-테이블-)
 28. -
-29. [771 - Jewels and Stones](#---771-)
+29. [771. Jewels and Stones](#---771-)
 30. -
-31. [347 - Top K Frequent Elements](#---347-)
+31. [347. Top K Frequent Elements](#---347-)
 #### - 그래프 [[↓]](#그래프-)
 32. -
 33. -
 34. -
-35. [77 - Combinations](#---77-)
-36. [39 - Combination Sum](#---39-)
+35. [77. Combinations](#---77-)
+36. [39. Combination Sum](#---39-)
 37. -
 38. -
-39. [207 - Course Schedul](#---207-)
+39. [207. Course Schedul](#---207-)
 #### - 최단 경로 문제 [[↓]](#최단-경로-문제-)
 40.  -
 41.  -
 #### - 트리 [[↓]](#트리-)
-42.  [104 - Maximum Depth of Binary Tree](#---104-)
+42.  [104. Maximum Depth of Binary Tree](#---104-)
 43.  -
-44.  -
-45.  -
+44.  [687. Longest Univalue Path](#---687-)
+45.  [226. Invert Binary Tree](#---226-)
 46.  -
 47.  -
 48.  -
@@ -64,10 +64,10 @@
 53.  -
 54.  -
 #### - 힙 [[↓]](#힙-)
-55.  -
+1.   -
 #### - 트라이 [[↓]](#트라이-)
-56.  -
-57.  -
+1.   -
+2.   -
 
 # 문자열 [[↑]](#--문자열-)
 
@@ -1567,7 +1567,7 @@ class Solution(object):
 
 |  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
 |:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
-|21-02-24| 1  | X  | O  | O  |  1 (49.85) |  1 (10.56) | [[ § 104-1 ](#-----104----1-)] |
+|21-02-04| 1  | X  | O  | O  |  1 (49.85) |  1 (10.56) | [[ § 104-1 ](#-----104----1-)] |
 
 ### 【[ § ](#leetcode)】 [[ § 104 ](#---104-)] - 1 [[↑]](#그래프-)
 이 문제 풀면서 알고리즘 공부한 보람이 있구나 싶었다. 내가 그토록 꺼림칙하게 여겼던 재귀를 스스로 이용해서 한번에 풀었다는게 참 감격스럽더라. 비록 굉장히 쉬운 문제였기는 하지만, 내가 지금까지 공부를 해오지 않았더라면 아마 못풀었을 것이라 생각되니 굳이 스스로 별 거 아니라고 여기기 보다는 대견하게 여기고 싶다.
@@ -1604,11 +1604,11 @@ Memory Usage: 16.4 MB, less than 10.56% of Python3 online submissions for Maximu
 
 ## 【[ § ](#leetcode)】 543 [[↑]](#트리-)
 > **Diameter of Binary Tree**   
-[[문제](https://leetcode.com/problems/diameter-of-binary-tree/)] 
+[[문제](https://leetcode.com/problems/longest-univalue-path/)] 
 
 |  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
 |:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
-|21-02-24| 1  | O  | O  | O  |  1 (19.20) |  1 (62.98) | [[ § 543-1 ](#-----543----1-)] |
+|21-02-04| 1  | O  | O  | O  |  1 (19.20) |  1 (62.98) | [[ § 543-1 ](#-----543----1-)] |
 
 ### 【[ § ](#leetcode)】 [[ § 543 ](#---543-)] - 1 [[↑]](#그래프-)
 참... 낫 놓고 기역자도 모른다고... 왠지 위의 문제에서 쓴 방식을 응용하면 될 것 같다고는 생각은 하고 있었지만 생각하려니 머리 아파서 책을 봤는데, 응용까지 갈 것도 없이 코드를 조금만 바꾸면 되는 거 였다. 돌이켜보면, 위에서 깊이우선탐색을 사용함으로써 굳이 리소스를 낭비했으면서, 정작 깊이우선탐색이 필요했던 이 문제는 스스로 해결을 못한 셈이니, 참으로 통탄스러운 바가 아닐 수 없다.
@@ -1632,6 +1632,106 @@ class Solution:
             
             
         dig(root)
+        return self.longest
+```
+- 결과
+```
+Runtime: 60 ms, faster than 19.20% of Python3 online submissions for Diameter of Binary Tree.
+Memory Usage: 16.3 MB, less than 62.98% of Python3 online submissions for Diameter of Binary Tree.
+```
+
+## 【[ § ](#leetcode)】 687 [[↑]](#트리-)
+> **Longest Univalue Path**   
+[[문제](https://leetcode.com/problems/diameter-of-binary-tree/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-02-04| 6  | O  | O  | O  |  1 (80.02) |  1 (52.46) | [[ § 687-1 ](#-----687----1-)] |
+
+### 【[ § ](#leetcode)】 [[ § 687 ](#---687-)] - 1 [[↑]](#그래프-)
+분명 혼자 힘으로 풀 수 있을 것 같았는데, 자꾸 뭘 하나씩 틀리더라. 일직선이 아닌 경우를 놓친다던지, 전체가 값이 다 똑같아 선이 여러 갈래로 갈라져 그 모든 갈래의 길이를 합산해버린다던지... 결국 책을 봐야 했는데, 지금 상태가 안좋은 건지 뭔지 보고 따라쳐놓고 안됐을 때 혼자서 왜 안된건지 생각안해보고 바로 책 다시 들여다보게 되더라. 막상 보니 조금만 생각해보면 책을 다시 안봤어도 되는 거 였는데, 공부는 이런 식으로 하면 안된다는 생각이 퍼뜩 들었다. 내가 이해하지 못한 코드를 이런 식으로 공부하면 안된다.
+```Python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    longest = 0
+    def longestUnivaluePath(self, root: TreeNode) -> int:
+        def dfs(node):
+            if not node:
+                return 0
+            
+            left = dfs(node.left)
+            right = dfs(node.right)
+            
+            if node.left and node.left.val == node.val:
+                left += 1
+            else:
+                left = 0
+            if node.right and node.right.val == node.val:
+                right += 1
+            else:
+                right = 0
+            
+            self.longest = max(self.longest, left + right)
+            
+            return max(left, right)
+        
+        dfs(root)
+        
+        return self.longest
+```
+- 결과
+```
+Runtime: 60 ms, faster than 19.20% of Python3 online submissions for Diameter of Binary Tree.
+Memory Usage: 16.3 MB, less than 62.98% of Python3 online submissions for Diameter of Binary Tree.
+```
+
+## 【[ § ](#leetcode)】 687 [[↑]](#트리-)
+> **Longest Univalue Path**   
+[[문제](https://leetcode.com/problems/diameter-of-binary-tree/)] 
+
+|  일자  |시도|참고|예시|정답|     시간    |     공간   | § | 
+|:------:|:--:|:--:|:--:|:--:|:----------:|:----------:|:--:|
+|21-02-04| 6  | O  | O  | O  |  1 (80.02) |  1 (52.46) | [[ § 687-1 ](#-----687----1-)] |
+
+### 【[ § ](#leetcode)】 [[ § 687 ](#---687-)] - 1 [[↑]](#그래프-)
+분명 혼자 힘으로 풀 수 있을 것 같았는데, 자꾸 뭘 하나씩 틀리더라. 일직선이 아닌 경우를 놓친다던지, 전체가 값이 다 똑같아 선이 여러 갈래로 갈라져 그 모든 갈래의 길이를 합산해버린다던지... 결국 책을 봐야 했는데, 지금 상태가 안좋은 건지 뭔지 보고 따라쳐놓고 안됐을 때 혼자서 왜 안된건지 생각안해보고 바로 책 다시 들여다보게 되더라. 막상 보니 조금만 생각해보면 책을 다시 안봤어도 되는 거 였는데, 공부는 이런 식으로 하면 안된다는 생각이 퍼뜩 들었다. 내가 이해하지 못한 코드를 이런 식으로 공부하면 안된다.
+```Python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    longest = 0
+    def longestUnivaluePath(self, root: TreeNode) -> int:
+        def dfs(node):
+            if not node:
+                return 0
+            
+            left = dfs(node.left)
+            right = dfs(node.right)
+            
+            if node.left and node.left.val == node.val:
+                left += 1
+            else:
+                left = 0
+            if node.right and node.right.val == node.val:
+                right += 1
+            else:
+                right = 0
+            
+            self.longest = max(self.longest, left + right)
+            
+            return max(left, right)
+        
+        dfs(root)
+        
         return self.longest
 ```
 - 결과
